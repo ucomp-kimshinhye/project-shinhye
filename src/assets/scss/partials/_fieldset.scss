@@ -1,0 +1,339 @@
+//  [의미 및 기능]
+//  * 절대적으로 있어야 하는 구성요소
+ 
+//  1. legend 반드시 포함
+//  2. 항목이 분류 되어야 함
+//  3. 항목은 label 존재 해야함
+//  3. form은 단독적인 기능을 폼함할 수 있음 (form 항목과 버튼이 동일하게 존재할 수 있음)
+//  4. form 가이드 영역
+//  5. valid, invalid 영역
+//  6. 전송 버튼
+ 
+//  [시각적 분류]
+ 
+//  1. legend 비노출 여부
+//  2. label 비노출 여부
+//  3. label 배치 (세로, 가로)
+
+/*
+ * @name submit-form
+ */
+
+
+.submit-form.module-a {
+	margin: 0;
+	padding: 0;
+	border: hidden;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: 32rem;
+
+	legend {
+		@include hidden;
+	}
+
+	.form-list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 16rem;
+
+		.form-item {
+			display: flex;
+			flex-direction: column;
+
+			.form-wrap {
+				display: flex;
+
+				.form-head {
+					display: flex;
+					align-items: center;
+
+					.form-name {
+						display: block;
+						@include font((outline: body, size: small-1x)...);
+						color: color(normal, 020);
+					}
+				}
+
+				.form-body {
+					flex: 1 1 100%;
+					display: flex;
+					flex-direction: column;
+					row-gap: 8rem;
+
+					.form-area {
+						display: flex;
+						align-items: center;
+						column-gap: 4rem;
+
+						@include respond-above(large) {
+							max-width: var(--width);
+						}
+
+						.form {
+							@include respond-above(large) {
+								max-width: var(--width);
+							}
+
+							&:not(.invalid)~.form-noti {
+								display: none;
+							}
+							
+							&.invalid:focus-within~.form-noti {
+								display: none;
+							}
+					
+							&.invalid:not(:focus-within) {
+								.form {
+									opacity: 0;
+								}
+							}
+						}
+						
+						.form:not(.flex) {
+							flex-shrink: 0;
+						}
+
+						.form.flex {
+							flex: 1 1 100%;
+						}
+
+						.unit,
+						.sign {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							flex-shrink: 0;
+							min-width: 1em;
+							@include font((outline: body, size: small)...);
+							color: color(normal, 030);
+							text-align: center;
+						}
+					}
+
+					.form-noti {
+						.para {
+							margin: 0;
+							@include font((outline: body, size: small-2x,)...);
+						}
+						
+						.para.invalid {
+							color: color(accent, 020);
+						}
+					}
+					.form-info {				
+						.para {
+							margin: 0;
+							@include font((outline: body, size: small-2x,)...);
+							color: color(base,040);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&:not([class*=type-]) {
+		.form-list {
+			.form-item {
+				.form-wrap {
+					.form-head {
+						@include hidden;
+					}
+				}
+			}
+		}
+	}
+
+	&.type-a {
+		.form-wrap {
+			column-gap: 16rem;
+			align-items: flex-start;
+
+			.form-head {
+				flex-shrink: 0;
+
+				height: 40rem;
+				width: 72rem;
+			}
+
+			.form-body {
+				flex: 1 1 100%;
+			}
+		}
+	}
+
+	&.type-c {
+		.form-wrap {
+			flex-direction: column;
+			row-gap: 8rem;
+		}
+	}
+
+	&.type-d {
+		.form-wrap {
+			@include respond-below(large) {
+				flex-direction: column;
+				row-gap: 8rem;
+			}
+
+			@include respond-above(large) {
+				align-items: flex-start;
+				column-gap: 16rem;
+
+				.form-head {
+					flex-shrink: 0;
+					
+					height: 40rem;
+					width: 72rem;
+				}
+				.form-body {
+					flex: 1 1 100%;
+				}
+			}
+		}
+	}
+}
+
+
+.submit-form.module-b {
+	margin: 0;
+	padding: 0;
+	border: hidden;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: 32rem;
+
+	legend {
+		@include hidden;
+	}
+
+	.form-list {
+		display: flex;
+		flex-direction: column;
+
+		.form-item {
+			display: flex;
+			flex-direction: column;
+
+			+.form-item {
+				border-top: 1rem solid color(base, 010);
+			}
+
+			.form-wrap {
+				display: flex;
+				justify-content: space-between;
+				column-gap: 4rem;
+				row-gap: 12rem;
+				padding: 20rem 0;
+
+				.form-head {
+					.form-name {
+						display: flex;
+						@include font((outline: body, size: small-1x)...);
+						color: color(normal, 020);
+					}
+				}
+
+				.form-body {
+					display: flex;
+					justify-content: space-between;
+					column-gap: 4rem;
+					
+					.form-area {
+						flex: 1 1 100%;
+					}
+
+					.form-data {
+						flex-shrink: 0;
+						min-width: 112rem;
+						text-align: right;
+	
+						.data-list {
+							.data-item {
+								.data-head {
+									@include hidden;
+								}
+								.data-body {
+									@include font((outline: body, size: small-1x)...);
+									color: color(normal, 020);
+								}
+							}
+						}
+					}
+	
+					.form-func {
+						.btn.delete {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							position: relative;
+							background: color(base, 000) icon(close, color(normal, 040)) no-repeat center/cover;
+	
+							.btn-text {
+								display: flex;
+								justify-content: center;
+								align-items: center;
+								position: relative;
+								z-index: -1;
+								width: 24rem;
+								height: 24rem;
+								@include font((outline: body, size: small-4x)...);
+								color: color(normal, 020);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	&.type-a {
+		.form-wrap {
+			align-items: center;
+			column-gap: 4rem;
+
+			.form-head {
+				flex-grow: 1 1 100%;
+			}
+
+			.form-body {
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	&.type-c {
+		.form-wrap {
+			flex-direction: column;
+			row-gap: 12rem;
+		}
+	}
+
+	&.type-d {
+		.form-wrap {
+			// mobile
+			@include respond-below(large-1x) {
+				flex-direction: column;
+				row-gap: 12rem;
+			}
+	
+			// laptop
+			@include respond-above(large-1x) {
+				align-items: center;
+				column-gap: 4rem;
+	
+				.form-head {
+					flex-grow: 1 1 100%;
+				}
+	
+				.form-body {
+					flex-shrink: 0;
+				}
+			}
+		}
+	}
+}

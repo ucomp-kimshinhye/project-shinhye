@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'front',
+	pageJavascript: ''
+}) %>
+<body>
+<!-- <h1>공통 팝업</h1> -->
+<br /><br /><br />
+<div class="button-display module-a style-a type-c">
+	<span class="button-area">
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('cancelOrder');" href="#cancelOrder"><span class="btn-text">주문취소</span></a>
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('changeShippingAddress');" href="#changeShippingAddress"><span class="btn-text">배송지 변경</span></a>
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('privacyPolicy');" href="#privacyPolicy"><span class="btn-text">비회원 주문 개인정보 수집 이용 동의</span></a>
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('shippingInfo');" href="#shippingInfo"><span class="btn-text">배송 안내</span></a>
+	</span>
+</div>
+<hr />
+<%-include('../_templates/_content.popup.ejs') %>
+<script stype="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		contentsPopup.active('cancelOrder');
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'order',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-order-complete">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-subject" id="localSubject"><span class="local-name">유셀러 공구마켓</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-subject" id="contentSubject"><span class="content-name">주문 확인</span></h3>							
+							<!-- <div class="content-control"></div> -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+
+							<!-- info-board -->
+							<div class="info-board module-a type-c large attr-done">
+								<div class="board-wrap">
+									<div class="board-head">
+										<!-- <p class="board-caption"></p> -->
+										<p class="board-subject"><span class="board-name"><span class="em accent-01">주문이 완료</span> 되었습니다.</span></p>
+										<p class="board-summary"><span class="wbr">구매하신 상품은 빠른 시일 내 배송될 예정입니다.</span></p>
+									</div>
+								</div>
+							</div>
+							<!-- //info-board -->
+							<div class="section">
+								<div class="section-wrap">
+									<div class="section-head"><span class="section-name">유셀러 주문 확인서</span></div>
+									<div class="section-body">
+										<!-- info-board -->
+										<div class="info-board bill">
+											<div class="board-wrap">
+												<div class="board-head">
+													<p class="board-caption">유셀러 공구마켓</p>
+													<p class="board-subject"><span class="board-name">하이언스 더 베이직 수딩플러스 앰플 55ml 외 1개</span></p>
+												</div>
+												<div class="board-foot">
+													<p class="para">결제금액 25,800원</p>
+												</div>
+											</div>
+											<div class="board-side">
+												<!-- data-display -->
+												<div class="data-display module-a type-d">
+													<!-- data-list -->
+													<ul class="data-list">
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">주문번호</span></div>
+																<div class="data-body"><strong class="em accent-01">20002020202020</strong> <button type="button" class="btn module-ico type-none normal-03 small-1x"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>복사</title><path d="M8,10c0-1.1,.9-2,2-2h8c1.1,0,2,.9,2,2v8c0,1.1-.9,2-2,2H10c-1.1,0-2-.9-2-2V10Zm2,8h8V10H10v8ZM6,4c-1.1,0-2,.9-2,2V14c0,1.1,.9,2,2,2h2v-2h-2V6H14v2h2v-2c0-1.1-.9-2-2-2H6Z"></path></svg></button></div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">결제정보</span></div>
+																<div class="data-body"><strong class="em accent-01">신한은행 123456-78-901234</strong><br />(예금주: 주식회사 어쩌고 김유라)</div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">입금기한</span></div>
+																<div class="data-body"><strong class="em accent-01">00일 이내 미입금 시 자동으로 주문 취소</strong></div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">수령인</span></div>
+																<div class="data-body">이땡땡</div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">주소</span></div>
+																<div class="data-body">서울 종로구 새문안로5길 19 로얄빌딩 5층 507호</div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">요청사항</span></div>
+																<div class="data-body">부재시 문 앞으로 배송 부탁드려용~~</div>
+															</div>
+														</li>
+													</ul>
+													<!-- //data-list -->
+												</div>
+												<!--// data-display -->
+											</div>
+										</div>
+										<!-- //info-board -->
+										<!-- noti-board -->
+										<div class="noti-board module-a type-a normal-03 small-1x symbol-ltr-information">
+											<div class="board-wrap">
+												<div class="board-head"><p class="board-subject"><span class="board-name">주문내역 조회시 주문번호가 필요하오니, 주문내역 화면 이미지 저장 혹은 주문번호를 복사해주시기 바랍니다.</span></p></div>
+											</div>
+										</div>
+										<!-- //noti-board -->
+										<!-- button-display -->
+										<div class="button-display module-a style-b type-a">
+											<span class="button-area">
+												<button class="btn module-b style-b type-fill accent-01 large-2x flex" type="button"><span class="btn-text">주문내역 저장하기</span></button>
+												<a class="btn module-b style-b type-line accent-01 large-2x flex" href="#"><span class="btn-text">주문내역 조회하기</span></a>
+											</span>
+										</div>
+										<!-- //button-display -->
+									</div>
+								</div>
+							
+							</div>
+
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+@import 'partials/_variables';
+@import 'partials/_mixin';
+@import 'partials/_contents';
+@import 'partials/_popup';
+@import 'partials/_widget';
+
+:root {
+	height: 100%;
+	font-size: 1px;
+
+	@include respond-below(small) {
+		font-size: 0.75px;
+	}
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	word-break: keep-all;
+	@include font((family: default, size: small)...);
+	-webkit-text-size-adjust: none;
+	// background-color: color(base, 005);
+}
+
+hr {
+	display: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+/**
+ * @type layout
+ * @name global
+ */
+#wrap {
+	position: relative;
+	overflow: hidden;
+}
+
+#page {
+	display: flex;
+	flex-direction: column;
+}
+
+/**
+ * @type layout
+ * @name page-skip
+ */
+ .page-skip {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 100;
+	top: -120rem;
+	left: calc(50% - 50vw);
+	width: 100vw;
+	height: 56rem;
+	background-color: color(base, 090);
+
+	.skip-item {
+		color: color(base, 000);
+		@include font((outline: body, size: medium)...);
+	}
+	
+	&:focus-within {
+		top: 0;
+	}
+}
+
+/**
+ * @type layout
+ * @name page-head
+ */
+.page-head {
+	position: relative;
+	display: flex;
+    padding: 0 20rem;
+    @include respond-above(large) {
+        padding: 0 40rem;
+    }
+	box-sizing: border-box;
+	border-bottom: 1px solid #d2d8dd;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: calc(50% - 50vw);
+		width: 100vw;
+		height: 100%;
+		border-bottom: 1px solid #d2d8dd;
+	}
+
+	.page-subject {
+		margin: 0;
+		display: flex;
+		flex: 1 1 100%;
+		height: 56rem;
+		.page-name {
+			display: flex;
+			align-items: center;
+			svg {
+				fill: color(base, 100);
+			}
+		}
+	}
+}
+
+/**
+ * @type layout
+ * @name page-body
+ */
+.page-body {
+    padding: 0 20rem;
+    @include respond-above(large) {
+        padding: 0 40rem;
+    }
+    
+	#local {
+		.local-head {
+
+		}
+		.local-body {
+
+		}
+	}
+}
+
+/**
+ * @type layout
+ * @name page-foot
+ */
+.page-foot {
+	@include hidden;
+}

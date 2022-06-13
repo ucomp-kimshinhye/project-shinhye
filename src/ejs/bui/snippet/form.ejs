@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<div class="local-subject"><h2 class="local-name" id="localName">snippet</h2></div>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<div class="content-title"><%- include('../_mixin/_title.content.ejs', {name: 'form'}) %></div>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'System'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;!--form-unit이 있을경우--&gt;
+&lt;span class="form textfield"&gt;
+	&lt;input class="form-elem" type="text"&gt;
+	&lt;span class="form-func"&gt;
+		&lt;span class="form-unit"&gt;&lt;/span&gt;
+		&lt;span class="form-time"&gt;&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/span&gt;
+&lt;!-- //form-unit --&gt;
+</code></pre>
+									<!-- //highlight -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!-- data-table -->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>module-*</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>medium, large, large-1x, large-2x, large-3x, large-4x</td>
+												</tr>
+												<tr>
+													<th scope="row">symbols</th>
+													<td>attr-*</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //data-table -->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'style'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield module-a style-a"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form-textfield module-a style-b"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form-textfield module-a style-c"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;</code></pre>
+											<!-- //highlight -->
+
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form textfield module-a style-a type-line normal-03 large-2x flex">
+																		<!-- onmouseover="console.log('onmouseover');" -->
+																		<input class="form-elem" type="text" value="1" onfocus="buiFormCheckValue2(this);" onmouseover="buiFormCheckValue2(this);" />
+																		<!-- <span class="form-func"> -->
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<!-- <span class="form-unit">원</span> -->
+																		<!-- </span> -->
+																	</span>
+
+																	<script type="text/javascript">
+																		function test1(elem) {
+																			// form value 체크
+																			if (elem.value.length > 0) {
+																				elem.parentElement.classList.add('typed');
+																			} else {
+																				elem.parentElement.classList.remove('typed');
+																			}
+																		}
+																		
+																		function buiFormCancelAction(buiFormUtil, buiFormCancel) {
+																			var xStart = buiFormUtil.offsetLeft + buiFormCancel.offsetLeft;
+																			var yStart = buiFormUtil.offsetTop + buiFormCancel.offsetTop;
+																			var xEnd = xStart + buiFormCancel.offsetWidth;
+																			var yEnd = yStart + buiFormCancel.offsetHeight;
+																			
+																			if (event.target.parentElement.classList.contains('typed')) {
+																				if (event.offsetX >= xStart && event.offsetX <= xEnd && event.offsetY >= yStart && event.offsetY <= yEnd) {
+																					event.target.value = '';	
+																					event.target.classList.remove('typed');
+																					event.target.style.removeProperty('cursor');
+																				}
+																			}
+																		}
+
+																		function buiFormCheckValue2(elem) {
+																			const buiForm = elem.parentElement
+																			const buiFormElem = buiForm.querySelector('.form-elem');
+																			
+																			let buiFormUtil = buiForm.querySelector('.form-func');
+																			if (!buiFormUtil) {
+																				const createFormUtil = document.createElement('span');
+																				createFormUtil.className = "form-func";
+																				buiForm.appendChild(createFormUtil);
+																				buiFormUtil = createFormUtil;
+																			}
+
+																			let buiFormCancel = buiForm.querySelector('.form-cancel');
+																			if (!buiFormCancel) {
+																				const createFormCancel = document.createElement('span');
+																				createFormCancel.className = "form-cancel";
+																				buiFormUtil.insertBefore(createFormCancel, buiFormUtil.children[0]);
+																				buiFormCancel = createFormCancel;
+																			} 
+
+																			test1(buiFormElem);
+																			elem.addEventListener('input', function() {
+																				test1(buiFormElem);
+																			}, false);
+																			
+
+																			if (buiFormUtil != null) {
+																				buiFormElem.style.setProperty('padding-right', buiFormUtil.offsetWidth + 'rem');
+																			}
+
+																			elem.addEventListener('click', function() {
+																				buiFormCancelAction(buiFormUtil, buiFormCancel);
+																				console.log("hi");
+																			}, false);
+																			
+
+																			
+																			// elem.addEventListener('focusout', function() {
+																			// 	if (buiFormUtil != null) {
+																			// 		buiFormElem.style.setProperty('padding-right', buiFormUtil.offsetWidth + 'px');
+																			// 	}	
+																			// }, false);
+																			// 	console.log('안녕?');
+																			// }, false);
+																		}
+
+																	</script>
+																	<span class="form textfield module-a style-b type-line normal-03 large-2x" style="width: 160rem;">
+																		<input class="form-elem" type="text" value="1" onfocus="buiFormCheckValue2(this);" onmouseover="buiFormCheckValue2(this);" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a style-c type-line normal-03 large-2x flex">
+																		<input class="form-elem" type="text" value="value" onfocus="buiFormCheckValue2(this);" onmouseover="buiFormCheckValue2(this);"  />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield module-a type-none"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a type-line"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a type-fill"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+</code></pre>
+											<!-- //highlight -->
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-01 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-01 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'outline'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield module-a medium"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a large"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a large-1x"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a large-2x"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+</code></pre>
+											<!-- //highlight -->
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-03 medium">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-line normal-03 large">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-line normal-03 large-1x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-line normal-03 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'accent'}) %></div>
+										<div class="subsubsection-body">
+											<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield module-a type-line normal-01"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a type-fill normal-01"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+</code></pre>
+											<!-- //highlight -->
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-01 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-01 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-02 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-02 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-03 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-03 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-04 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-04 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+																<div class="form-area">
+																	<span class="form textfield module-a type-line accent-01 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill accent-01 large-2x">
+																		<input class="form-elem" type="text" value="value" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'textfield'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+										<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textfield module-a type-line normal-03 large-2x"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form textfield module-a type-fill normal-03 large-2x"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;	
+</code></pre>
+											<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'property'}) %></div>
+										<div class="subsubsection-body">
+										
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form textfield module-a type-line normal-03 large-2x">
+																		<input class="form-elem" type="text" value="normal" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+
+																	<span class="form textfield module-a type-line normal-03 large-2x">
+																		<input class="form-elem" type="text" value="readonly" readonly="readonly" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-line normal-03 large-2x">
+																		<input class="form-elem" type="text" value="disabled" disabled="disabled"/>
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+																<div class="form-area">
+																	<span class="form textfield module-a type-fill normal-03 large-2x">
+																		<input class="form-elem" type="text" value="normal" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-03 large-2x">
+																		<input class="form-elem" type="text" value="readonly" readonly="readonly" />
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																	<span class="form textfield module-a type-fill normal-03 large-2x">
+																		<input class="form-elem" type="text" value="disabled" disabled="disabled"/>
+																		<span class="form-func">
+																			<!-- <span class="form-time">05:00</span> -->
+																			<!-- <span class="form-unit">%</span> -->
+																			<span class="form-unit">원</span>
+																		</span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'search'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form search module-a style-a type-line normal-03 large-2x flex"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+&lt;span class="form search module-a style-a type-fill normal-03 large-2x flex"&gt;&lt;input class="form-elem" type="text"&gt;&lt;/span&gt;
+</code></pre>
+									<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'property'}) %></div>
+										<div class="subsubsection-body">
+
+
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form search module-a style-a type-line normal-03 large-2x flex">
+																		<input class="form-elem" type="search" value="normal" />
+																	</span>
+																	<span class="form search module-a style-a type-line normal-03 large-2x flex">
+																		<input class="form-elem" type="search" value="readonly" readonly="readonly"/>
+																	</span>
+																	<span class="form search module-a style-a type-line normal-03 large-2x flex">
+																		<input class="form-elem" type="search" value="disabled" disabled="disabled"/>
+																	</span>
+																</div>
+																<div class="form-area">
+																	<span class="form search module-a style-a type-fill normal-03 large-2x flex">
+																		<input class="form-elem" type="search" value="normal" />
+																	</span>
+																	<span class="form search module-a style-a type-fill normal-03 large-2x flex">
+																		<input class="form-elem" type="search" value="readonly" readonly="readonly"/>
+																	</span>
+																	<span class="form search module-a style-a type-fill normal-03 large-2x flex">
+																		<input class="form-elem" type="search" value="disabled" disabled="disabled"/>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->							
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'select'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form select module-a style-a type-line normal-03 large-2x flex"&gt;
+	&lt;select class="form-elem"&gt;
+		&lt;option&gt;select option 1"&gt;&lt;/option&gt;
+		&lt;option&gt;select option 2"&gt;&lt;/option&gt;
+		&lt;option&gt;select option 3"&gt;&lt;/option&gt;
+		&lt;option&gt;select option 4"&gt;&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/span&gt;
+</code></pre>
+									<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'property'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos type-a">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form select module-a style-a type-line normal-03 large-2x flex">
+																		<select class="form-elem">
+																			<option>option1</option>
+																			<option>option2</option>
+																			<option>option3</option>
+																			<option>option4</option>
+																		</select>
+																	</span>
+																	<span class="form select module-a style-a type-line normal-03 large-2x flex">
+																		<select class="form-elem" disabled="disabled">
+																			<option>option1</option>
+																			<option>option2</option>
+																			<option>option3</option>
+																			<option>option4</option>
+																		</select>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'textarea'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form textarea module-a style-a type-line normal-03"&gt;&lt;textarea class="form-elem" cols="40" rows="4"&gt;&lt;/textarea&gt;&lt;/span&gt;
+&lt;span class="form textarea module-a style-a type-fill normal-03"&gt;&lt;textarea class="form-elem" cols="40" rows="4"&gt;&lt;/textarea&gt;&lt;/span&gt;
+</code></pre>
+									<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'property'}) %></div>
+										<div class="subsubsection-body">
+
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form textarea module-a style-a type-line normal-03 large-2x"><textarea class="form-elem" cols="40" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptatibus dicta dolore sunt dolorum hic delectus eveniet minus libero! Ullam, natus hic amet non temporibus vitae suscipit accusamus voluptatum molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, aut fugiat ducimus labore earum ipsa sit beatae dolor iste maxime minima magni ratione officia sint, laboriosam alias, mollitia expedita aspernatur!</textarea></span>
+																	<span class="form textarea module-a style-a type-line normal-03 large-2x"><textarea class="form-elem" cols="40" rows="10" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptatibus dicta dolore sunt dolorum hic delectus eveniet minus libero! Ullam, natus hic amet non temporibus vitae suscipit accusamus voluptatum molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, aut fugiat ducimus labore earum ipsa sit beatae dolor iste maxime minima magni ratione officia sint, laboriosam alias, mollitia expedita aspernatur!</textarea></span>
+																	<span class="form textarea module-a style-a type-line normal-03 large-2x"><textarea class="form-elem" cols="40" rows="10" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptatibus dicta dolore sunt dolorum hic delectus eveniet minus libero! Ullam, natus hic amet non temporibus vitae suscipit accusamus voluptatum molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, aut fugiat ducimus labore earum ipsa sit beatae dolor iste maxime minima magni ratione officia sint, laboriosam alias, mollitia expedita aspernatur!</textarea></span>
+																</div>
+																<div class="form-area">
+																	<span class="form textarea module-a style-a type-fill normal-03 large-2x"><textarea class="form-elem" cols="40" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptatibus dicta dolore sunt dolorum hic delectus eveniet minus libero! Ullam, natus hic amet non temporibus vitae suscipit accusamus voluptatum molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, aut fugiat ducimus labore earum ipsa sit beatae dolor iste maxime minima magni ratione officia sint, laboriosam alias, mollitia expedita aspernatur!</textarea></span>
+																	<span class="form textarea module-a style-a type-fill normal-03 large-2x"><textarea class="form-elem" cols="40" rows="10" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptatibus dicta dolore sunt dolorum hic delectus eveniet minus libero! Ullam, natus hic amet non temporibus vitae suscipit accusamus voluptatum molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, aut fugiat ducimus labore earum ipsa sit beatae dolor iste maxime minima magni ratione officia sint, laboriosam alias, mollitia expedita aspernatur!</textarea></span>
+																	<span class="form textarea module-a style-a type-fill normal-03 large-2x"><textarea class="form-elem" cols="40" rows="10" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptatibus dicta dolore sunt dolorum hic delectus eveniet minus libero! Ullam, natus hic amet non temporibus vitae suscipit accusamus voluptatum molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, aut fugiat ducimus labore earum ipsa sit beatae dolor iste maxime minima magni ratione officia sint, laboriosam alias, mollitia expedita aspernatur!</textarea></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'Quantity'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="form quantity"&gt;
+	&lt;input class="form-elem" type="text" title="수량" pattern=[0-9]*" inputmode="numeric" value="1" &gt;
+	&lt;button class="form-step-up" type="button" tabindex="-1"&gt;증가&lt;/button&gt;
+	&lt;button class="form-step-down" type="button" tabindex="-1" disabled="disabled"&gt;감소&lt;/button&gt;
+&lt;/span&gt;
+</code></pre>
+									<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'style'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<span class="form quantity module-a style-a type-line normal-03 large-2x">
+																		<input class="form-elem" type="number" step="1" min="1" max="100" value="1"/>
+																		<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																		<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'radio'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;label class="form radio module-a style-c large-2x"&gt;
+	&lt;input class="form-elem" type="radio"&gt;&lt;span class ="form-text"&gt;라디오 버튼"&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="form radio module-a style-c large-2x"&gt;
+	&lt;input class="form-elem" type="radio" checked="checked"&gt;&lt;span class ="form-text"&gt;라디오 버튼"&lt;/span&gt;
+&lt;/label&gt;
+</code></pre>
+									<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'style'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<label class="form radio module-a style-c small-1x"><input type="radio" class="form-elem" name="radio-0000" /> <span class="form-text">라디오 버튼</span></label>
+																	<label class="form radio module-a style-c small-1x"><input type="radio" class="form-elem" name="radio-0000" checked="checked" /> <span class="form-text">라디오 버튼</span></label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	`
+					<!-- //section -->
+
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'checkbox'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">
+									<div class="content-title"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								</div>
+								<div class="subsection-body">
+									<!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;label class="form checkbox module-a style-a large-2x"&gt;
+	&lt;input class="form-elem" type="checkbox"&gt;&lt;span class ="form-text"&gt;체크박스 버튼a"&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="form radio module-a style-a large-2x"&gt;
+	&lt;input class="form-elem" type="checkbox" checked="checked"&gt;&lt;span class ="form-text"&gt;체크박스 버튼a"&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="form checkbox module-a style-b large-2x"&gt;
+	&lt;input class="form-elem" type="checkbox"&gt;&lt;span class ="form-text"&gt;체크박스 버튼b"&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="form radio module-a style-b large-2x"&gt;
+	&lt;input class="form-elem" type="checkbox" checked="checked"&gt;&lt;span class ="form-text"&gt;체크박스 버튼b"&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="form checkbox module-a style-c large-2x"&gt;
+	&lt;input class="form-elem" type="checkbox"&gt;&lt;span class ="form-text"&gt;체크박스 버튼c"&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="form radio module-a style-c large-2x"&gt;
+	&lt;input class="form-elem" type="checkbox" checked="checked"&gt;&lt;span class ="form-text"&gt;체크박스 버튼c"&lt;/span&gt;
+&lt;/label&gt;
+</code></pre>
+									<!-- //highlight -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'style'}) %></div>
+										<div class="subsubsection-body">
+											<!-- submit-form -->
+											<fieldset class="submit-form bui-demos">
+												<legend>전송 서식</legend>
+												<div class="form-list">
+													<div class="form-item">
+														<div class="form-wrap">
+															<div class="form-body">
+																<div class="form-area">
+																	<label class="form checkbox module-a style-a small-1x"><input type="checkbox" class="form-elem" /> <span class="form-text">체크박스 버튼 a</span></label>
+																	<label class="form checkbox module-a style-a small-1x"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">체크박스 버튼 a</span></label>
+																</div>
+																<div class="form-area">
+																	<label class="form checkbox module-a style-b small-1x"><input type="checkbox" class="form-elem" /> <span class="form-text">체크박스 버튼 b</span></label>
+																	<label class="form checkbox module-a style-b small-1x"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">체크박스 버튼 b</span></label>
+																</div>
+																<div class="form-area">
+																	<label class="form checkbox module-a style-c small-1x"><input type="checkbox" class="form-elem" /> <span class="form-text">체크박스 버튼 c</span></label>
+																	<label class="form checkbox module-a style-c small-1x"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">체크박스 버튼 c</span></label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<!-- //submit-form -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- subsubsection -->
+						</div>
+					</div>	
+					<!-- //section -->
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!--//page-->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+.form {
+	.form-elem {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		appearance: none;
+	}
+}
+
+/*
+ * module-a outline
+ *
+ * @ $padding
+ * @ $height
+ * @ $line-height
+ * @ $font-size
+ * @ $font-weight
+ * @ $border-width
+ */  
+
+$form-module-a-outline: (
+	'small-1x'		calc(16rem * 0.5) 24rem 16rem calc(16rem / 1.5) 300 1rem,
+	'small'			calc(16rem * 0.5) 28rem 18rem calc(16rem / 1.5) 300 1rem,
+	'medium'		calc(18rem * 0.5) 32rem 18rem calc(18rem / 1.5) 300 1rem,
+	'large'			calc(20rem * 0.5) 40rem 20rem calc(20rem / 1.5) 300 1rem,
+	'large-1x'		calc(22rem * 0.5) 48rem 22rem calc(22rem / 1.5) 300 1rem,
+	'large-2x'		calc(24rem * 0.5) 56rem 24rem calc(24rem / 1.5) 300 1rem,
+);
+
+
+// 높이(textfield와 radio, textarea가 동일하지 않음);
+
+
+.form.module-a {
+	display: inline-flex;
+	position: relative;
+
+	.form-elem {
+		position: relative;
+		box-sizing: border-box; // textarea 적용안됨
+
+		&[type=search] {
+			&::-webkit-search-decoration,
+			&::-webkit-search-cancel-button,
+			&::-webkit-search-results-button,
+			&::-webkit-search-results-decoration{
+				display:none;
+			}
+		}
+
+		&::placeholder {
+			font-weight: 300;
+		}
+	}
+
+	// style
+	&:not(.radio),
+	&:not(.checkbox) {
+		.form-elem {
+			@include font((family: default)...);
+		}
+
+		&.style-b {
+			.form-elem {
+				border-radius: 4rem;
+			}
+		}
+	}
+
+	&.checkbox,
+	&.radio {
+		.form-elem {
+			flex-shrink: 0;
+		}
+
+		.form-text {
+			display: block;
+		}
+	}
+
+	&.radio {
+		.form-elem {
+			width: 24rem;
+			height: 24rem;
+			position: relative;
+
+			&::before {
+				content: '';
+				display: block;
+				box-sizing: border-box;
+				width: 20rem;
+				height: 20rem;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				border-width: 1rem;
+				border-style: solid;
+				border-color: color(base, 030);
+				border-radius: 10rem;
+			}
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 11rem;
+				height: 11rem;
+				box-sizing: border-box;
+				border-radius: 10rem;
+			}
+
+			&:checked {
+				&::before {
+					border-color: color(accent, 010);
+					background-color: color(accent, 010);
+				}
+				&::after {
+					background-color: color(base, 000);
+				}
+			}
+		}
+	}
+	&.checkbox {
+		.form-elem {
+			width: 24rem;
+			height: 24rem;
+			position: relative;
+
+			&::before {
+				content: '';
+				display: block;
+				box-sizing: border-box;
+				width: 20rem;
+				height: 20rem;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				bottom: 0;
+				border-width: 1rem;
+				border-style: solid;
+				border-color: color(base, 030);
+				border-radius: 4rem;
+			}
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: calc(50% - 6rem);
+				left: calc(50% - 5rem);
+				width: 10rem;
+				height: 5rem;
+				transform: rotate(-45deg);
+				box-sizing: border-box;
+				box-shadow: -1.75rem 1.75rem 0 0 color(base, 030);
+			}
+
+			&:checked {
+				&::before {
+					border-color: color(accent, 010);
+					background-color: color(accent, 010);
+				}
+				&::after {
+					box-shadow: -2rem 2rem 0 0 color(base, 000);
+				}
+			}
+		}
+	}
+
+	// cancel button
+	&.select,
+	&.search,
+	&.textfield {
+		.form-elem {
+			flex: 1 1 100%;
+			width: 100%;
+			border-style: solid;
+		}
+
+		.form-func {
+			display: flex;
+			align-items: center;
+			position: absolute;
+
+			top: 0;
+			right: 0;
+			bottom: 0;
+			pointer-events: none;
+
+			.form-cancel {
+				display: none;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+		}
+	}
+
+	&:hover.typed,
+	&:focus-within.typed {
+		.form-func {
+			.form-cancel {
+				display: block;
+			}
+		}
+	}
+
+	// select
+
+	&.select {
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			pointer-events: none;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
+
+	&.textarea {
+		.form-elem {
+			flex: 1 1 100%;
+			width: 100%;
+			@include overflow-scroll(default, dark);
+			resize: none;
+		}
+	}
+
+	&.quantity {
+		display: flex;
+
+		input[type="number"]::-webkit-outer-spin-button,
+		input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		.form-elem {
+			order: 2;
+			text-align: center;
+			border: 1px solid #333;
+			border-left: none;
+			border-right: none;
+		}
+		.form-step-up,
+		.form-step-down {
+			border: 1px solid #333;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: default;
+			@include font((family: default, size: small)...);
+
+			&::after {
+				content: '';
+				display: block;
+				pointer-events: none;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+
+		}
+		.form-step-up {
+			order: 3;
+		}
+		.form-step-down {
+			order: 1;
+		}
+	}
+
+	// outline
+	@each $name, $padding, $height, $line-height, $font-size, $font-weight, $border-width in $form-module-a-outline {
+		&.#{$name} {
+
+			// style
+			&:not(.radio),
+			&:not(.checkbox) {
+				&.style-c {
+					.form-elem {
+						border-radius: $height * 0.5;
+					}
+				}
+			}
+
+			// checkbox, radio outline
+			&.checkbox,
+			&.radio {
+				@include font((family: default)...);
+				column-gap: calc(($height / 1.5) / 4);
+
+				.form-elem {
+					width: $height;
+					height: $height;
+					background-size: $height auto;
+				}
+				.form-text {
+					line-height: $height;
+					font-size: calc($height / 1.5);
+				}
+			}
+
+			// textfield, select outline
+			&.textfield {
+				.form-elem {
+					text-indent: $padding;
+					padding-right: 36rem;
+					height: $height;
+					line-height: $line-height;
+					font-size: $font-size;
+					border-width: $border-width;
+					text-overflow: ellipsis;
+				}
+
+				.form-func {
+					padding: 0 $padding;
+					column-gap: calc(($line-height / 1.5) / 4);
+					line-height: $line-height;
+					font-size: $font-size;
+	
+					.form-cancel {
+						width: $line-height;
+						height: $line-height;
+					}
+
+					.form-down {
+						width: $line-height;
+						height: $line-height;
+					}
+				}
+			}
+			
+
+			&.quantity {
+				.form-elem {
+					width: 3em;
+					height: $height;
+					line-height: $line-height;
+					font-size: calc($line-height/1.25);
+					border-width: $border-width;
+				}
+				.form-step-up,
+				.form-step-down {
+					width: $height;
+					height: $height;
+					line-height: $line-height;
+					font-size: $font-size;
+					border-width: $border-width;
+					&::after {
+						width: $line-height;
+						background-size: $line-height $line-height;
+						height: $line-height;
+					}
+				}	
+			}
+			
+			// textfield, select background
+			&.search,
+			&.select {
+				.form-elem {
+					padding-left: $padding;
+					padding-right: calc($padding * 2 + $line-height);
+					height: $height;
+					line-height: $line-height;
+					font-size: $font-size;
+					border-width: $border-width;
+					text-overflow: ellipsis;
+				}
+
+				&::after {
+					padding: 0 $padding;
+					width: $line-height;
+					background-size: $line-height $line-height;
+				}
+			}
+
+			// textarea
+			&.textarea {
+				flex-direction: column;
+				row-gap: 4rem;
+
+				.form-elem {
+					padding: calc(($height - $line-height) / 2) $padding;
+					// padding: calc(($line-height - $font-size) / 2) $padding;
+					line-height: $line-height;
+					font-size: $font-size;
+					border-width: $border-width;
+				}
+
+
+				.form-func {
+					display: flex;
+					justify-content: flex-end;
+					
+					.form-count {
+						@include font((outline: body, size: small-2x)...);
+						color: color(normal, 040);
+						
+						.value {
+							color: color(normal, 020);
+						}
+					}
+				}
+			}
+		}
+	}
+
+		/**
+	* @ module-a accent
+	*
+	* @ $color
+	* @ $color-unit
+	* @ $color-placeholder
+	* @ $color-disabled
+	*
+	* @ $border-color
+	*
+	* @ $background-readonly
+	* @ $background-disabled
+	* @ $background-color
+	*/
+	$form-module-a-accent: (
+		'normal-00': (
+			'none' color(base, 100) color(base, 030) color(base, 030) color(base, 020) 	transparent				transparent transparent transparent,
+			'line' color(base, 100) color(base, 030) color(base, 030) color(base, 020)	color(base, 100)		color(base, 005) color(base, 010) color(base, 000),
+			'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 020)	color(base, 100)		color(base, 010) color(base, 010) color(base, 100),
+		),
+		'normal-01': (
+			'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)	 transparent				transparent transparent transparent,
+			'line' color(base, 070) color(base, 030) color(base, 030) color(base, 020)	 color(base, 090)		color(base, 005) color(base, 010) color(base, 000),
+			'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 070)	 color(base, 100)		color(base, 090) color(base, 090) color(base, 100),
+		),
+		'normal-02': (
+			'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)	transparent				transparent transparent transparent,
+			'line' color(base, 070) color(base, 030) color(base, 030) color(base, 020)	color(base, 070)		color(base, 005) color(base, 010) color(base, 000),
+			'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 050)	color(base, 070)		color(base, 070) color(base, 070) color(base, 070),
+		),
+		'normal-03': (
+			'none' color(base, 070) color(base, 030) color(base, 030) color(base, 020)	transparent				transparent transparent transparent,
+			'line' color(base, 070) color(base, 070) color(base, 040) color(base, 020)	color(base, 030)		color(base, 005) color(base, 010) color(base, 000),
+			'fill' color(base, 000) color(base, 000) color(base, 000) color(base, 020)	color(base, 030)		color(base, 030) color(base, 030) color(base, 030),
+		),
+		'normal-04': (
+			'none' color(base, 070) color(base, 030) color(base, 030)  color(base, 030)	 transparent				transparent transparent transparent,
+			'line' color(base, 030) color(base, 030) color(base, 030)  color(base, 030)	 color(base, 010)		color(base, 005) color(base, 010) color(base, 000),
+			'fill' color(base, 030) color(base, 030) color(base, 030)  color(base, 030)	 color(base, 010)		color(base, 010) color(base, 010) color(base, 010),
+		),
+		'accent-01': (
+			'none' color(accent, 010) color(accent, 010) color(base, 030)  color(base, 030)				transparent				transparent transparent transparent,
+			'line' color(accent, 010) color(accent, 010) color(base, 030)  color(base, 030)				color(accent, 010)		color(accent, 010) color(base, 010) color(base, 000),
+			'fill' color(accent, 000) color(accent, 000) color(base, 030)  color(base, 030)				color(accent, 010)		color(accent, 010) color(base, 010) color(accent, 010),
+		),
+	);
+
+	@each $accent-name in $form-module-a-accent {
+		&.#{nth($accent-name, 1)} {
+			// @debug "divider offset: #{nth($accent-name, 1)}";
+			@each $type-name, $color, $color-unit, $color-placeholder, $color-disabled, $border-color, $background-readonly, $background-disabled, $background-color  in map-get($form-module-a-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					&.file,
+					&.search,
+					&.select,
+					&.textfield,
+					&.textarea {	
+					
+						.form-text {
+							color: $color;
+						}
+
+						.form-elem {
+							color: color(normal, 020);
+							border-color: $border-color;
+							background-color: $background-color;
+
+							&::placeholder {
+								color: $color-placeholder;
+							}
+
+							
+						}
+						&.invalid {
+							.form-elem {
+								border-color:red;
+							}
+						}
+
+						.form-func {
+							.form-cancel {
+								background-image: icon(circle-delete, $color-unit);
+							}
+							.form-unit {
+								color: $color-unit;
+							}
+						}
+					}
+
+					&.select {						
+						&::after {
+							background-image: icon(chevron-down, $color-unit);
+						}
+					}
+					
+					&.quantity{
+						.form-elem {
+							color: $color;
+							border-color: $border-color;
+							background-color: $background-color;
+						}
+						.form-step-up {				
+							border-color: $border-color;		
+							&::after {
+								background-image: icon(plus, $color-placeholder);
+							}
+						}
+						.form-step-down {		
+							border-color: $border-color;				
+							&::after {
+								background-image: icon(minus, $color-placeholder);
+							}
+						}
+					}
+				
+					//readonly
+					&.search,
+					&.textfield,
+					&.textarea {
+						.form-elem {
+							&:read-only {
+								color: $color;
+								background-color: $background-readonly;
+							}
+						}
+					}
+					
+					//disabled
+					&.search,
+					&.select,
+					&.textfield,
+					&.textarea {
+						.form-elem {
+							&:disabled {
+								color: $color-disabled;
+								background-color: $background-disabled;
+							}	
+						}
+					}
+				}
+			}
+		}
+	}
+}

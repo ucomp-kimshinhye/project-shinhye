@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'order',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-ordered">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-subject" id="localSubject"><span class="local-name">유셀러 공구마켓</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-subject" id="contentSubject"><span class="content-name">주문 상세 내역</span></h3>							
+							<!-- <div class="content-control"></div> -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+							<!-- section -->
+							<div class="section ordered-seller">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">판매자 정보</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- data-display -->
+										<div class="data-display">
+											<!-- data-list -->
+											<ul class="data-list">
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">주문번호</span></div>
+														<div class="data-body">2000202020200</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">주문일자</span></div>
+														<div class="data-body">2022.05.08 12:14:03</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">유셀러 공구마켓 <span>김땡땡</span> </span></div>
+														<div class="data-body">010-2323-1111</div>
+													</div>
+												</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+										<!--// data-display -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+
+							<!-- section -->
+							<div class="section module-a style-a type-a ordered-goods">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">상품 정보</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- info-board -->
+										<div class="info-board module-a type-a">
+											<div class="board-wrap">
+												<div class="board-head">
+													<p class="board-subject">[11차 앵콜]베이직 수딩플러스 앰플 공구</p>
+												</div>
+												<div class="board-body">
+													<p class="para">대한통운 <strong class="em accent-01">562910776934</strong></p>
+													<!-- button-display -->
+													<div class="button-display module-a style-a type-a">
+														<span class="button-area">
+															<a class="btn module-b style-b type-fill accent-01 large flex" href="#"><span class="btn-text">배송조회</span></a>
+															<button class="btn module-b style-b type-line normal-02 large flex" type="button"  href="#cancelOrder" onclick="contentsPopup.active('cancelOrder');"><span class="btn-text">주문취소</span></button>
+														</span>
+													</div>
+													<!-- //button-display -->
+												</div>
+											</div>
+										</div>
+										<!-- //info-board -->
+										<!-- goods-display -->
+										<div class="goods-display module-a style-a type-d">
+											<div class="goods-list">
+												<div class="goods-item">
+													<div class="goods-wrap">
+														<div class="goods-figure"><a href="#" class="goods-cover"><img class="thumbnail" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="goods-inform">
+															<div class="goods-head">
+																<p class="goods-order-number"><span class="head">주문번호</span><span class="body">20000202020200</span></p>
+																<p class="goods-subject"><strong class="goods-name">베이직 수딩플러스 앰플 55ml 셋트옵션2</strong></p>
+															</div>
+															<div class="goods-sale">
+																<div class="data-list">
+																	<span class="data-item price">
+																		<span class="data-head">판매가</span>
+																		<span class="data-body"><span class="text">50,000</span><span class="unit">원</span></span>
+																	</span>
+																	<span class="data-item quantity">
+																		<span class="data-head">수량</span>
+																		<span class="data-body"><span class="text">1</span><span class="unit">개</span></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="goods-status">
+															<span class="goods-tracking"><strong class="em normal-01">출고완료</strong></span>
+														</div>
+													</div>
+												</div>
+												<div class="goods-item">
+													<div class="goods-wrap">
+														<div class="goods-figure"><a href="#" class="goods-cover"><img class="thumbnail" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="goods-inform">
+															<div class="goods-head">
+																<p class="goods-order-number"><span class="head">주문번호</span><span class="body">20000202020200</span></p>
+																<p class="goods-subject"><strong class="goods-name">베이직 수딩플러스 앰플 55ml 단품</strong></p>
+															</div>
+															<div class="goods-sale">
+																<div class="data-list">
+																	<span class="data-item price">
+																		<span class="data-head">판매가</span>
+																		<span class="data-body"><span class="text">8,600</span><span class="unit">원</span></span>
+																	</span>
+																	<span class="data-item quantity">
+																		<span class="data-head">수량</span>
+																		<span class="data-body"><span class="text">2</span><span class="unit">개</span></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="goods-status">
+															<span class="goods-tracking"><strong class="em normal-01">출고완료</strong></span>
+														</div>
+													</div>
+												</div>
+												<div class="goods-item">
+													<div class="goods-wrap">
+														<div class="goods-figure"><a href="#" class="goods-cover"><img class="thumbnail" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="goods-inform">
+															<div class="goods-head">
+																<p class="goods-order-number"><span class="head">주문번호</span><span class="body">20000202020200</span></p>
+																<p class="goods-subject"><strong class="goods-name">베이직 수딩플러스 앰플 55ml 단품</strong></p>
+															</div>
+															<div class="goods-sale">
+																<div class="data-list">
+																	<span class="data-item price">
+																		<span class="data-head">판매가</span>
+																		<span class="data-body"><span class="text">8,600</span><span class="unit">원</span></span>
+																	</span>
+																	<span class="data-item quantity">
+																		<span class="data-head">수량</span>
+																		<span class="data-body"><span class="text">2</span><span class="unit">개</span></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="goods-status">
+															<span class="goods-tracking"><strong class="em normal-01">입금대기</strong></span>
+														</div>
+													</div>
+												</div>
+												<div class="goods-item">
+													<div class="goods-wrap">
+														<div class="goods-figure"><a href="#" class="goods-cover"><img class="thumbnail" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="goods-inform">
+															<div class="goods-head">
+																<p class="goods-subject"><strong class="goods-name">베이직 수딩플러스 앰플 55ml 단품</strong></p>
+															</div>
+															<div class="goods-sale">
+																<div class="data-list">
+																	<span class="data-item price">
+																		<span class="data-head">판매가</span>
+																		<span class="data-body"><span class="text">8,600</span><span class="unit">원</span></span>
+																	</span>
+																	<span class="data-item quantity">
+																		<span class="data-head">수량</span>
+																		<span class="data-body"><span class="text">2</span><span class="unit">개</span></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="goods-status">
+															<span class="goods-tracking"><strong class="em normal-01">입금대기</strong></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- //goods-display -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- section -->
+							<div class="section module-a style-a type-d ordered-payment">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">결제 정보</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- subsection -->
+										<div class="subsection temp1">
+											<div class="subsection-head"><h5 class="subsection-subject"><span class="subsection-name">결제수단</span></h5></div>
+											<div class="subsection-body">
+												<!-- data-display -->
+												<div class="data-display module-a type-a">
+													<!-- data-list -->
+													<ul class="data-list">
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">결제방법</span></div>
+																<div class="data-body">무통장입금</div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">결제정보</span></div>
+																<div class="data-body"><strong class="em accent-01">신한은행 123456-123456-123456</strong> <strong class="em normal-02">(예금주: 주식회사 어쩌고 김유라)</strong></div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">입금기한</span></div>
+																<div class="data-body"><strong class="em accent-01">00일 이내 미입금 시 자동으로 주문 취소</strong></div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">입금자명</span></div>
+																<div class="data-body">이땡땡</div>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<div class="data-head"><span class="data-name">환불계좌</span></div>
+																<div class="data-body">토스뱅크 12345678901234</div>
+															</div>
+														</li>
+													</ul>
+													<!-- //data-list -->
+												</div>
+												<!--// data-display -->
+											</div>
+										</div>
+										<!-- //subsection -->
+										<!-- subsection -->
+										<div class="subsection temp2">
+											<div class="subsection-head"><h5 class="subsection-subject"><span class="subsection-name">주문금액</span></h5></div>
+											<div class="subsection-body">
+												<!-- data-board -->
+												<div class="data-board module-a type-c order-detail">
+													<div class="board-wrap">
+														<div class="board-body">
+															<!--data-display-->
+															<div class="data-display module-a type-b small-1x">
+																<ul class="data-list">
+																	<li class="data-item">
+																		<div class="data-wrap">
+																			<span class="data-head"><span class="data-name">총 상품금액</span></span>
+																			<span class="data-body"><strong class="em base-00">95,564원</strong></span>
+																		</div>
+																	</li>
+																	<li class="data-item">
+																		<div class="data-wrap">
+																			<span class="data-head"><span class="data-name">배송비</span></span>
+																			<span class="data-body"><strong class="em base-00">+ 2,500원</strong></span>
+																		</div>
+																	</li>
+																	<li class="data-item">
+																		<div class="data-wrap">
+																			<span class="data-head"><span class="data-name">추가 배송비</span></span>
+																			<span class="data-body"><strong class="em base-00">0원</strong></span>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+															<!--//data-display-->
+															<!-- total-amount -->
+															<div class="total-amount">
+																<span class="head">최종결제금액</span>
+																<span class="body"><span class="text">91,164</span><span class="unit">원</span></span>
+															</div>
+															<!-- //total-amount -->
+														</div>
+													</div>
+												</div>
+												<!-- //data-board -->
+											</div>
+										</div>
+										<!-- //subsection -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- section -->
+							<div class="section module-a style-a type-a ordered-shipping">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">배송지 정보</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- data-display -->
+										<div class="data-display module-a type-a">
+											<!-- data-list -->
+											<ul class="data-list">
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">수령인</span></div>
+														<div class="data-body">이땡땡</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">연락처</span></div>
+														<div class="data-body">010-0000-0000</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">주소</span></div>
+														<div class="data-body">서울 종로구 새문안로5길 19 로얄빌딩 5층 507호</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">요청사항</span></div>
+														<div class="data-body">부재시 문 앞으로 배송 부탁드려용~~</div>
+													</div>
+												</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+										<!--// data-display -->
+									</div>
+									<div class="section-util">
+										<a class="em accent-01 small-1x" href="#changeShippingAddress" onclick="contentsPopup.active('changeShippingAddress');">배송지 변경</a>
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- section -->
+							<div class="section module-a style-a type-a ordered-orderer">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">주문자 정보</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- data-display -->
+										<div class="data-display module-a type-a">
+											<!-- data-list -->
+											<ul class="data-list">
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">주문자</span></div>
+														<div class="data-body">이땡땡</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">연락처</span></div>
+														<div class="data-body">010-0000-0000</div>
+													</div>
+												</li>
+												<li class="data-item">
+													<div class="data-wrap">
+														<div class="data-head"><span class="data-name">이메일</span></div>
+														<div class="data-body">design@ucomp.co.kr</div>
+													</div>
+												</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+										<!--// data-display -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<%-include('../_popup/_contentsPopup.changeShippingAddress.ejs') %>
+<%-include('../_popup/_contentsPopup.cancelOrder.ejs') %>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'blank',
+	pageStyle: 'login',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-login">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-subject" id="localSubject"><span class="local-name">로그인</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-subject" id="contentSubject"><span class="content-name">주문/배송조회</span></h3>
+							<p class="content-summary">비회원 조회하기</p>
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<form class="content-body">
+							<!-- submit-form -->
+							<fieldset class="submit-form module-a type-a">
+								<legend>전송 서식</legend>
+								<div class="form-list">
+									<div class="form-item">
+										<div class="form-wrap">
+											<div class="form-head"><label class="form-name" for="mobilePhoneNumber">휴대폰번호</label></div>
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form textfield module-a style-b type-line normal-03 large-1x flex">
+														<input class="form-elem" type="tel" id="mobilePhoneNumber" maxlength="11" placeholder="휴대폰번호를 입력해주세요" value="" />
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-item">
+										<div class="form-wrap">
+											<div class="form-head"><label class="form-name" for="orderNumber">주문번호</label></div>
+											<div class="form-body">
+												<div class="form-area">
+													<span class="form textfield module-a style-b type-line normal-03 large-1x flex">
+														<input class="form-elem" type="text" id="orderNumber" inputmode="numeric" pattern="[0-9]*" maxlength="" placeholder="주문번호를 입력해주세요" value="" />
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-item">
+										<div class="form-wrap">
+											<div class="form-body">
+												<div class="form-area">
+													<label class="form checkbox module-a style-a small-1x accent-01">
+														<input type="checkbox" class="form-elem" checked="checked" />
+														<span class="form-text">휴대폰번호 저장</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- button-display -->
+								<div class="button-display module-a style-a type-a">
+									<span class="button-area">
+										<button class="btn module-b style-b type-fill accent-01 large-2x flex" type="submit"><span class="btn-text">조회하기</span></button>
+									</span>
+								</div>
+								<!-- //button-display -->
+							</fieldset>
+							<!-- //submit-form -->
+							<!-- data-list -->
+							<ul class="data-list module-a type-a normal-03 small-2x">
+								<li class="data-item">주문 완료 시 안내드린 주문번호로만 조회가 가능합니다.</li>
+								<li class="data-item">주문번호는 주문자 이메일에서 재확인하실 수 있습니다.</li>
+							</ul>
+							<!-- //data-list -->
+						</form>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

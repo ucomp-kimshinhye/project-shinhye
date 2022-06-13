@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.header.front.ejs', {
+	pageStyle: 'bui.page.snippet.css',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+<%-include('../_templates/_header.snippet.ejs') %>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-subject" id="contentSubject"><span class="content-name">list</span></h3>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'data list'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list"&gt;
+	&lt;li class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="data-list"&gt;
+	&lt;p class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small-2x, small-1x, small, medium, large, large-1x, large-2x</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+			
+							
+							<!-- subsection: type -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-a normal-00 medium"&gt
+&lt;ul class="data-list module-a type-b normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-d normal-00 medium"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'demos'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-e normal-02 small-1x">
+												<li class="data-item">출고 완료 후 <span class="em accent-01">7일</span>이내 반품 신청 가능</li>
+												<li class="data-item">주문실수, 변심 등 고객 귀책 사유시 반품 배송비 : <span class="em accent-01">2500</span>원</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: type -->
+
+							<!-- subsection: type -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'type'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-a normal-00 medium"&gt
+&lt;ul class="data-list module-a type-b normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-d normal-00 medium"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-a'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-a normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-b'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-c'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-d'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-d normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: type -->
+							
+							<!-- subsection: accent -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'accent'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-c normal-01 medium"&gt
+&lt;ul class="data-list module-a type-c normal-02 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-03 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-04 medium"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'normal-01'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-01 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'normal-02'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-02 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'normal-03'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-03 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'normal-04'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-04 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: accent -->
+
+							<!-- subsection: outline -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'outline'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-b normal-00 small"&gt;
+&lt;ul class="data-list module-a type-b normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-b normal-00 large"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'small-1x'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 small-1x">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'small'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'medium'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 medium">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: outline -->
+				
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'order list'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="order-list"&gt;
+	&lt;li class="order-item"&gt;
+		&lt;ul class="data-list"&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small-2x, small-1x, small, medium, large, large-1x, large-2x</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+			
+							<!-- subsection: type -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Demos'}) %></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="order-list module-a type-a normal-00 medium"&gt;
+	&lt;li class="order-item"&gt;
+		&lt;ul class="data-list module-a type-a normal-00 small-2x"&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-a'}) %></div>
+										<div class="subsubsection-body">
+											<p class="para normal-02">배송 예정일 (평일 기준, 주말 공휴일 제외)</p>
+											<!-- order-list -->
+											<ul class="order-list module-a type-a small-1x normal-01">
+												<li class="order-item ">배송소요시간
+													<ul class="data-list module-a type-c normal-02 small-2x">
+														<li class="data-item">출고 후 1~3일 정도 소요 될 수 있습니다.</li>
+														<li class="data-item">배송일 지정이 불가한 점 양해 부탁드립니다.</li>
+														<li class="data-item">택배사의 사정으로 인한 배송지연이 발생할 수 있습니다.</li>
+													</ul>
+												</li>
+												<li class="order-item">제주/도서 지역
+													<ul class="data-list module-a type-c normal-02 small-2x">
+														<li class="data-item">평균 배송일 보다 1~2일 정도 더 소요될 수 있습니다.</li>
+													</ul>
+												</li>
+												<li class="order-item">주문변경
+													<ul class="data-list module-a type-c normal-02 small-2x">
+														<li class="data-item">[출고준비중] 상태 부터는 주문취소 / 옵션변경 / 배송지 변경이 제한 됩니다.</li>
+													</ul>
+												</li>
+											</ul>
+											<!-- //order-list -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><%- include('../_mixin/_title.section.ejs', {name: 'data-display'}) %></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'HTML Structure'}) %></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list"&gt;
+	&lt;li class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="data-list"&gt;
+	&lt;p class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'Class Options'}) %></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small-1x, small, medium, large, large-1x</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><%- include('../_mixin/_title.subsection.ejs', {name: 'module-a'}) %></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">&lt;div class="data-display module-b style-* type-* normal-* small"&gt;
+	&lt;ul class="data-list"&gt;
+		&lt;li class="data-item"&gt;
+			&lt;div class="data-wrap"&gt;
+				&lt;div class="data-head"&gt;&lt;span class="data-name"&gt;name&lt;/span&gt;&lt;/div&gt;
+				&lt;div class="data-body"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: '결제정보'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">결제방법</span></div>
+															<div class="data-body">무통장입금</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">결제정보</span></div>
+															<div class="data-body"><span class="em accent-01">신한 12345678901234</span> <span class="em normal-02">(예금주: 주식회사 어쩌고 김유라)</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">입금기한</span></div>
+															<div class="data-body"><span class="em accent-01">00일 이내 미입금 시 자동으로 주문 취소</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">입금자명</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">환불계좌</span></div>
+															<div class="data-body">토스뱅크 12345678901234</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: '주문서 확인'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-c">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주문번호</span></div>
+															<div class="data-body"><span class="body-name">20002020202020 <a href="#" class="btn module-ico type-none normal-03 small-1x"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>복사</title><path d="M8,10c0-1.1,.9-2,2-2h8c1.1,0,2,.9,2,2v8c0,1.1-.9,2-2,2H10c-1.1,0-2-.9-2-2V10Zm2,8h8V10H10v8ZM6,4c-1.1,0-2,.9-2,2V14c0,1.1,.9,2,2,2h2v-2h-2V6H14v2h2v-2c0-1.1-.9-2-2-2H6Z"></path></svg></a></span> </div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">결제정보</span></div>
+															<div class="data-body"><span class="em accent-01">신한은행 123456-78-901234</span> <span class="em normal-02">(예금주: 주식회사 어쩌고 김유라)</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">입금기한</span></div>
+															<div class="data-body"><span class="em accent-01">00일 이내 미입금 시 자동으로 주문 취소</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">수령인</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주소</span></div>
+															<div class="data-body">서울 종로구 새문안로5길 19 로얄빌딩 5층 507호</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">요청사항</span></div>
+															<div class="data-body">부재시 문 앞으로 배송 부탁드려용~~</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: '배송지 정보'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">수령인</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">연락처</span></div>
+															<div class="data-body">010-0000-0000</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주소</span></div>
+															<div class="data-body">서울 종로구 새문안로5길 19 로얄빌딩 5층 507호</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">요청사항</span></div>
+															<div class="data-body">부재시 문 앞으로 배송 부탁드려용~~</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: '주문자 정보'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주문자</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">연락처</span></div>
+															<div class="data-body">010-0000-0000</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">이메일</span></div>
+															<div class="data-body">design@ucomp.co.kr</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-a'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a style-b fill normal-02">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+								
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-b'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-b">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+
+												
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-c'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-c small-1x">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+
+									<div class="subsubsection">
+										<div class="subsubsection-head"><%- include('../_mixin/_title.subsubsection.ejs', {name: 'type-d'}) %></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-d normal-01 small-1x">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function() {
+		var buttons = document.querySelectorAll('.bui-button-area .btn');
+		Array.prototype.forEach.call(buttons, function(button) {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+</body>
+</html>

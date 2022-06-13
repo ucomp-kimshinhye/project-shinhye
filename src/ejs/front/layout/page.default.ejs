@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'order',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-order">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-subject" id="localSubject"><span class="local-name">유셀러 공구마켓</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-subject" id="contentSubject"><span class="content-name">상품 상세</span></h3>							
+							<!-- <div class="content-control"></div> -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+
+						</div>
+						<!-- //content-body -->
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+</html>

@@ -1,0 +1,402 @@
+/**
+ * Breakpoints
+ */
+$container-gap: 20rem;
+
+$breakpoints: (
+	frame:		1920px,
+	container:	1120px,
+
+	large-3x:	2560px,		// laptop 4K
+	large-2x:	1440px,		// laptop large
+	large-1x:	1024px,		// laptop
+	large:		768px,		// tablet
+	medium:		425px,		// mobile large
+	small:		375px,		// mobile medium
+	small-1x:	320px,		// mobile small
+	small-2x:	280px,		// mobile small-1x
+);
+
+// 이상
+@mixin respond-above($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+		@media (min-width: $breakpoint-value) {
+			@content;
+		}
+	} @else {
+		@warn 'Invalid breakpoint: #{$breakpoint}.';
+	}
+}
+
+// 이하
+@mixin respond-below($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+		@media (max-width: ($breakpoint-value - 1)) {
+			@content;
+		}
+	} @else {
+		@warn 'Invalid breakpoint: #{$breakpoint}.';
+	}
+}
+
+@mixin respond-between($lower, $upper) {
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+		$lower-breakpoint: map-get($breakpoints, $lower);
+		$upper-breakpoint: map-get($breakpoints, $upper);
+		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+			@content;
+		}
+	} @else {
+		@if (map-has-key($breakpoints, $lower) == false) {
+			@warn 'Your lower breakpoint was invalid: #{$lower}.';
+		}
+		@if (map-has-key($breakpoints, $upper) == false) {
+			@warn 'Your upper breakpoint was invalid: #{$upper}.';
+		}
+	}
+}
+
+
+/**
+ * Vertical rhythm
+ */
+
+$vertical-rhythm: (
+	laptop: (
+		content: 8rem,
+		section: 4rem,
+		subsection: 3rem,
+		subsubsection: 2rem,
+	),
+	mobile: (
+		content: 4rem,
+		section: 2.5rem,
+		subsection: 2rem,
+		subsubsection: 1.5rem,
+	)
+);
+
+/**
+ * Gutter
+ */
+
+$gutter: (
+	laptop: (
+		content: 4rem,
+		section: 3rem,
+		subsection: 2rem,
+		subsubsection: 1.5rem,
+	),
+	mobile: (
+		content: 1.5rem,
+		section: 1.5rem,
+		subsection: 1rem,
+		subsubsection: 1rem,
+	)
+);
+
+
+/**
+ * Color theme creation
+ */
+
+// color palettes
+$color-palettes: (
+	base: (
+		100: #000000,
+		090: #000000,
+		080: #000000,
+		070: #232b37,
+		060: #4e5968,
+		050: #8b95a1,
+		040: #afb7bf,
+		030: #d2d8dd,
+		020: #e2e6e9,
+		010: #f2f2f5,
+		005: #f9fafc,
+		000: #ffffff,
+	),
+	primary: (
+		100: #000000,
+		090: #000000,
+		080: #000000,
+		070: #000000,
+		060: #000000,
+		050: #00a3ff,
+		040: #000000,
+		030: #000000,
+		020: #000000,
+		010: #000000,
+		005: #000000,
+		000: #000000,
+	),
+	secondary: (
+		100: #000000,
+		090: #000000,
+		080: #000000,
+		070: #000000,
+		060: #000000,
+		050: #ff3e3e,
+		040: #000000,
+		030: #000000,
+		020: #000000,
+		010: #000000,
+		005: #000000,
+		000: #000000,
+	),
+
+	normal: (
+		010: #232b37,
+		020: #4e5968,
+		030: #8b95a1,
+		040: #afb7bf,
+		000: #ffffff,
+		100: #000000,
+	),
+
+	accent: (
+		010: #00a3ff,
+		020: #ff3e3e,
+		030: #000000,
+		000: #ffffff,
+		100: #000000,
+	),
+);
+
+// Create Color
+@function color($theme: normal, $variant: 00, $opacity: 1) {
+	$set-color: map-get($color-palettes, $theme, $variant);
+	$create-color: rgba(red($set-color),green($set-color),blue($set-color),$opacity);
+	@return $create-color;
+}
+
+
+/*
+ * @ text accent
+ * @ $text-color
+ */
+ $text-accent: (
+	normal-00: color(normal, 100),
+	normal-01: color(normal, 010),
+	normal-02: color(normal, 020),
+	normal-03: color(normal, 030),
+	normal-04: color(normal, 040),
+	normal-10: color(normal, 000),
+	accent-01: color(accent, 010),
+	accent-02: color(accent, 020),
+	accent-03: color(accent, 030),
+);
+
+
+
+/**
+ * Font systems
+ */
+
+// Font theme
+$font-theme: (
+	bui-body: (
+		font-family: #{Roboto, Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			extra-light:	200,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			semi-bold:		500,
+			bold:			700,
+			black:			900,
+		),
+	),
+	bui-head: (
+		font-family: #{Roboto Mono, Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			extra-light:	200,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			semi-bold:		600,
+			bold:			700,
+			black:			700,
+		),
+	),
+	code: (
+		font-family: #{Consolas, Courier New, monospace, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			extra-light:	200,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			semi-bold:		500,
+			bold:			700,
+			black:			900,
+		),
+	),
+	default: (
+		font-family: #{'Pretendard Variable', Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		// font-family: #{'Noto Sans KR', Malgun Gothic, 맑은 고딕, dotum, 돋움, sans-serif},
+		
+		letter-spacing: normal,
+		font-weight: (
+			thin:			100,
+			light:			300,
+			regular:		400,
+			medium:			500,
+			bold:			700,
+			black:			900,
+		),
+	),
+);
+
+// Font outlines
+$font-outline: (
+	default: (
+		small-5x:	(line-height: 12rem, font-size: calc(12rem / 1)),
+		small-4x:	(line-height: 16rem, font-size: calc(16rem / 1)),
+		small-3x:	(line-height: 18rem, font-size: calc(18rem / 1)),
+		small-2x:	(line-height: 20rem, font-size: calc(20rem / 1)),
+		small-1x:	(line-height: 24rem, font-size: calc(24rem / 1)),
+		small:		(line-height: 28rem, font-size: calc(28rem / 1)),
+		medium:		(line-height: 32rem, font-size: calc(32rem / 1)),
+		large:		(line-height: 40rem, font-size: calc(40rem / 1)),
+		large-1x:	(line-height: 48rem, font-size: calc(48rem / 1)),
+		large-2x:	(line-height: 56rem, font-size: calc(56rem / 1)),
+		large-3x:	(line-height: 64rem, font-size: calc(64rem / 1)),
+		large-4x:	(line-height: 72rem, font-size: calc(72rem / 1)),
+		large-5x:	(line-height: 80rem, font-size: calc(80rem / 1)),
+	),
+
+	head: (
+		small-5x:	(line-height: 12rem, font-size: calc(12rem / 1.25)),
+		small-4x:	(line-height: 16rem, font-size: calc(16rem / 1.25)),
+		small-3x:	(line-height: 18rem, font-size: calc(18rem / 1.25)),
+		small-2x:	(line-height: 20rem, font-size: calc(20rem / 1.25)),
+		small-1x:	(line-height: 24rem, font-size: calc(24rem / 1.25)),
+		small:		(line-height: 28rem, font-size: calc(28rem / 1.25)),
+		medium:		(line-height: 32rem, font-size: calc(32rem / 1.25)),
+		large:		(line-height: 40rem, font-size: calc(40rem / 1.25)),
+		large-1x:	(line-height: 48rem, font-size: calc(48rem / 1.25)),
+		large-2x:	(line-height: 56rem, font-size: calc(56rem / 1.25)),
+		large-3x:	(line-height: 64rem, font-size: calc(64rem / 1.25)),
+		large-4x:	(line-height: 72rem, font-size: calc(72rem / 1.25)),
+		large-5x:	(line-height: 80rem, font-size: calc(80rem / 1.25)),
+	),
+
+	body: (
+		small-5x:	(line-height: 12rem, font-size: calc(12rem / 1.5)),
+		small-4x:	(line-height: 16rem, font-size: calc(16rem / 1.5)),
+		small-3x:	(line-height: 18rem, font-size: calc(18rem / 1.5)),
+		small-2x:	(line-height: 20rem, font-size: calc(20rem / 1.5)),
+		small-1x:	(line-height: 24rem, font-size: calc(24rem / 1.5)),
+		small:		(line-height: 28rem, font-size: calc(28rem / 1.5)),
+		medium:		(line-height: 32rem, font-size: calc(32rem / 1.5)),
+		large:		(line-height: 40rem, font-size: calc(40rem / 1.5)),
+		large-1x:	(line-height: 48rem, font-size: calc(48rem / 1.5)),
+		large-2x:	(line-height: 56rem, font-size: calc(56rem / 1.5)),
+		large-3x:	(line-height: 64rem, font-size: calc(64rem / 1.5)),
+		large-4x:	(line-height: 72rem, font-size: calc(72rem / 1.5)),
+		large-5x:	(line-height: 80rem, font-size: calc(80rem / 1.5)),
+	),
+);
+
+// Create font declaration
+@mixin font($outline: &, $size: &, $line-height: &, $style: &, $weight: &, $family: &, $letter-spacing: &) {
+	@if $size != & {
+		@if $outline != & {
+			font: {size: map-get($font-outline, $outline, $size, font-size);}
+			@if $line-height != & {
+				line-height: $line-height;
+			} @else {
+				line-height: map-get($font-outline, $outline, $size, line-height);
+			}
+		} @else {
+			font: {size: map-get($font-outline, body, $size, font-size);}
+			@if $line-height != & {
+				line-height: $line-height;
+			} @else {
+				line-height: map-get($font-outline, $outline, $size, line-height);
+			}
+		}
+	}
+	@if $style != & {
+		font: {style: $style;}
+	}
+	@if $weight != & {
+		@if $family != & {
+			font: {weight: map-get($font-theme, $family, font-weight, $weight);}
+		} @else {
+			font: {weight: map-get($font-theme, default, font-weight, $weight);}
+		}
+	}
+	@if $family != & {
+		font: {family: map-get($font-theme, $family, font-family);}
+	}
+	@if $letter-spacing != & {
+		letter-spacing: $letter-spacing;
+	}
+}
+
+
+/**
+ * System icons
+ */
+
+// Icon lit
+$symbol-list: (
+	// sample
+	sample:				(size: 24 24, path: ''),
+
+	// bui
+	bui:				(size: 24 24, path: 'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'),
+	
+	//action
+	check:				(size: 24 24, path: 'M10.03,16.95l-4.24-4.24c-.39-.39-.39-1.02,0-1.41,.39-.39,1.02-.39,1.41,0l2.83,2.83h0l6.78-6.78c.39-.39,1.02-.39,1.41,0,.39,.39,.39,1.02,0,1.41l-6.78,6.78-1.41,1.41h0Z'),
+	chevron-down:		(size: 24 24, path: 'M17.29,10.41l-4.58,4.58h0c-.39,.39-1.02,.39-1.41,0l-4.57-4.57c-.39-.39-.39-1.02,0-1.41,.39-.39,1.02-.39,1.41,0l3.86,3.86,3.88-3.88c.39-.39,1.02-.39,1.41,0,.39,.39,.39,1.02,0,1.41Z'),
+	chevron-left:		(size: 24 24, path: 'M9,11.29l4.57-4.57c.39-.39,1.02-.39,1.41,0,.39,.39,.39,1.02,0,1.41l-3.86,3.86,3.88,3.88c.39,.39,.39,1.02,0,1.41s-1.02,.39-1.41,0l-4.58-4.58c-.39-.39-.39-1.02,0-1.41Z'),
+	chevron-right:		(size: 24 24, path: 'M15,12.71l-4.57,4.57c-.39,.39-1.02,.39-1.41,0-.39-.39-.39-1.02,0-1.41l3.86-3.86-3.88-3.88c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l4.58,4.58c.39,.39,.39,1.02,0,1.41Z'),
+	chevron-up:			(size: 24 24, path: 'M17.29,14.99c-.39,.39-1.02,.39-1.41,0l-3.86-3.86-3.88,3.88c-.39,.39-1.02,.39-1.41,0-.39-.39-.39-1.02,0-1.41l4.58-4.58c.39-.39,1.02-.39,1.41,0l4.57,4.57c.39,.39,.39,1.02,0,1.41Z'),
+	arrow-up:			(size: 24 24, path: 'M17.29,12.13c-.39,.39-1.02,.39-1.41,0l-2.87-2.87v7.89c0,.55-.45,1-1,1s-1-.45-1-1v-7.87l-2.87,2.87c-.39,.39-1.02,.39-1.41,0s-.39-1.02,0-1.41l4.58-4.58c.39-.39,1.02-.39,1.41,0l4.57,4.57c.39,.39,.39,1.02,0,1.41Z'),
+	information:		(size: 24 24, path: 'M13,9v3c0,.55-.45,1-1,1s-1-.45-1-1v-3c0-.55,.45-1,1-1s1,.45,1,1Zm-1,5c-.55,0-1,.45-1,1s.45,1,1,1,1-.45,1-1-.45-1-1-1Zm8-2c0,4.42-3.58,8-8,8s-8-3.58-8-8S7.58,4,12,4s8,3.58,8,8Zm-2,0c0-3.31-2.69-6-6-6s-6,2.69-6,6,2.69,6,6,6,6-2.69,6-6Z'),
+	copy:				(size: 24 24, path: 'M8,10c0-1.1,.9-2,2-2h8c1.1,0,2,.9,2,2v8c0,1.1-.9,2-2,2H10c-1.1,0-2-.9-2-2V10Zm2,8h8V10H10v8ZM6,4c-1.1,0-2,.9-2,2V14c0,1.1,.9,2,2,2h2v-2h-2V6H14v2h2v-2c0-1.1-.9-2-2-2H6Z'),
+	delivery:			(size: 24 24, path: 'M4.25,6.76H13.75c.6,0,1.1,.42,1.22,.99h2.16c.38,0,.72,.21,.89,.55l1.72,3.45v3.5h-1.5c0,1.1-.9,2-2,2s-2-.9-2-2h-4c0,1.1-.9,2-2,2s-2-.9-2-2h-1.5v-3.5h2.75v-1.24h-2.57v-1.25h4.07v-1.25H4.25v-1.25Zm5,8.49c0,.55-.45,1-1,1s-1-.45-1-1,.45-1,1-1,1,.45,1,1Zm8,0c0,.55-.45,1-1,1s-1-.45-1-1,.45-1,1-1,1,.45,1,1Zm-.33-6.17h-2v2.85h3.33l-1.33-2.85Z'),
+	edit:				(size: 24 24, path: 'M18.4,20c.88,0,1.6-.72,1.6-1.6v-5.4c0-.55-.45-1-1-1s-1,.45-1,1v5H6V6h6c.55,0,1-.45,1-1s-.45-1-1-1H5.8c-.99,0-1.8,.81-1.8,1.8v12.2c0,1.1,.9,2,2,2h12.4Zm-.9-14c-.13,0-.26,.05-.36,.15l-6.53,6.53-.24,.95,.95-.24,6.53-6.53c.09-.09,.15-.22,.15-.36s-.05-.26-.15-.36c-.09-.09-.22-.15-.36-.15Zm-1.77-1.27c.47-.47,1.11-.73,1.77-.73s1.3,.26,1.77,.73c.47,.47,.73,1.11,.73,1.77s-.26,1.3-.73,1.77l-6.73,6.73c-.13,.13-.29,.22-.46,.26l-2.83,.71c-.34,.09-.7-.01-.95-.26s-.35-.61-.26-.95l.71-2.83c.04-.18,.13-.34,.26-.46l6.73-6.73Z'),
+	minus:				(size: 24 24, path: 'M19.48,12c0,.55-.45,1-1,1H5.52c-.55,0-1-.45-1-1s.45-1,1-1h12.97c.55,0,1,.45,1,1Z'),
+	plus:				(size: 24 24, path: 'M19.48,12c0,.55-.45,1-1,1h-5.48v5.48c0,.55-.45,1-1,1s-1-.45-1-1v-5.48H5.52c-.55,0-1-.45-1-1s.45-1,1-1h5.48V5.52c0-.55,.45-1,1-1s1,.45,1,1v5.48h5.48c.55,0,1,.45,1,1Z'),
+	question:			(size: 24 24, path: 'M12.62,13.07c0-.25,.04-.47,.1-.65s.19-.37,.38-.53c.21-.2,.41-.4,.59-.59,.18-.2,.33-.41,.44-.63,.11-.23,.17-.48,.17-.77,0-.4-.08-.74-.25-1.03-.17-.28-.41-.5-.73-.64-.32-.15-.7-.22-1.14-.22-.4,0-.77,.07-1.09,.21-.33,.14-.58,.35-.78,.64-.19,.28-.29,.64-.3,1.06h1.29c0-.21,.05-.37,.13-.5,.08-.13,.19-.23,.32-.29,.13-.06,.28-.09,.42-.09,.18,0,.33,.04,.45,.11,.12,.07,.22,.17,.28,.3,.07,.13,.1,.3,.1,.5,0,.18-.03,.33-.1,.47-.07,.14-.16,.27-.28,.4-.12,.12-.25,.26-.4,.4-.19,.18-.34,.35-.45,.53-.11,.17-.19,.36-.24,.57-.05,.21-.07,.46-.07,.76h0v.63h1.17v-.63Zm.18,2.25c0,.19-.07,.35-.2,.48-.13,.13-.31,.2-.53,.2s-.4-.07-.54-.2c-.13-.13-.2-.29-.2-.48s.07-.36,.2-.49c.13-.13,.31-.2,.54-.2s.4,.07,.53,.2c.13,.13,.2,.29,.2,.49Zm-.8-11.32c-4.41,0-8,3.59-8,8s3.59,8,8,8,8-3.59,8-8-3.59-8-8-8Zm0,15c-3.86,0-7-3.14-7-7s3.14-7,7-7,7,3.14,7,7-3.14,7-7,7Z'),
+	time:				(size: 24 24, path: 'M12,4c-4.42,0-8,3.58-8,8s3.58,8,8,8,8-3.58,8-8-3.58-8-8-8Zm0,14c-3.31,0-6-2.69-6-6s2.69-6,6-6,6,2.69,6,6-2.69,6-6,6Zm3.47-3.98c-.28,.48-.89,.64-1.37,.37l-2.6-1.5c-.06-.04-.1-.09-.16-.14-.03-.02-.05-.04-.08-.07-.06-.06-.1-.13-.14-.2-.03-.05-.05-.09-.07-.15-.02-.06-.03-.12-.04-.18,0-.05-.03-.1-.03-.15v-3c0-.55,.45-1,1-1s1,.45,1,1v2.44l2.1,1.21c.48,.28,.64,.89,.37,1.37Z'),
+	circle-delete:		(size: 24 24, path: 'M12,4a8,8,0,1,0,8,8A8,8,0,0,0,12,4Zm4,10.63A1,1,0,1,1,14.63,16L12,13.41,9.37,16A1,1,0,1,1,8,14.63L10.59,12,8,9.37A1,1,0,1,1,9.37,8L12,10.59,14.63,8A1,1,0,1,1,16,9.37L13.41,12Z'),
+	close:				(size: 24 24, path: 'M17.29,15.88c.39,.39,.39,1.02,0,1.41-.39,.39-1.02,.39-1.41,0l-3.88-3.88-3.88,3.88c-.39,.39-1.02,.39-1.41,0-.39-.39-.39-1.02,0-1.41l3.88-3.88-3.88-3.88c-.39-.39-.39-1.02,0-1.41,.39-.39,1.02-.39,1.41,0l3.88,3.88,3.88-3.88c.39-.39,1.02-.39,1.41,0,.39,.39,.39,1.02,0,1.41l-3.88,3.88,3.88,3.88Z'),
+
+	// bullet 
+	bullet-dot:			(size: 24 24, path: 'M12,10c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,10,12,10z'),
+	bullet-dash:		(size: 24 24, path: 'M14,13h-4v-2h4V13z'),
+	bullet-square:		(size: 24 24, path: 'M14,14h-4v-4h4V14z'),
+	bullet-star:		(size: 24 24, path: 'M10,14.1l1-1.7l-1.8-0.7l0.3-0.8l1.9,0.5l0.2-2h0.9l0.2,1.9l1.9-0.4l0.3,0.8L13,12.4l1,1.7l-0.7,0.5L12,13l-1.3,1.5L10,14.1z'),
+
+	// lamp
+	lamp-dot:			(size: 24 24, path: 'M16.8,12A4.8,4.8,0,1,1,12,7.2,4.8,4.8,0,0,1,16.8,12Z'),
+
+	add:				(size: 24 24, path: 'M11 19V13H5V11H11V5H13V11H19V13H13V19Z'),
+	remove:				(size: 24 24, path: 'M5 13V11H19V13Z'),
+);
+
+// Create system icon (RGB는 익스플로러를 대응하기 위해 사용 합니다.)
+@function icon($name, $color, $backgroundColor: &) {
+	$size: map-get($symbol-list, $name, 'size');
+	$path: map-get($symbol-list, $name, 'path');
+
+	@if $backgroundColor != & {
+		$data: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{$size}'%3E %3Cpath fill='rgba(" + red($backgroundColor) + "," + green($backgroundColor) + "," + blue($backgroundColor) + ",1)' d='M0,0h24v24H0V0z'/%3E %3Cpath fill='rgba(" + red($color) + "," + green($color) + "," + blue($color) + ",1)' d='#{$path}'/%3E%3C/svg%3E";
+		@return url($data);
+	} @else {
+		$data: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{$size}'%3E %3Cpath fill='none' d='M0,0h24v24H0V0z'/%3E %3Cpath fill='rgba(" + red($color) + "," + green($color) + "," + blue($color) + ",1)' d='#{$path}'/%3E%3C/svg%3E";
+		@return url($data);
+	}
+}

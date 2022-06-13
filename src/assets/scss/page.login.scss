@@ -1,0 +1,102 @@
+@import 'partials/_variables';
+@import 'partials/_mixin';
+
+#wrap {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+}
+#page {
+	flex: 1 1 100%;
+	overflow: hidden;
+
+	.page-head {
+
+	}
+
+	.page-body {
+		flex: 1 1 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		#local {
+			margin: 32rem 0;
+			width: 320rem;
+			max-width: 100%;
+
+			.local-head {
+				@include hidden;
+			}
+			.local-body {
+				#content {
+					display: flex;
+					flex-direction: column;
+					row-gap: 24rem;
+					.content-head {
+						display: flex;
+						flex-direction: column;
+						.content-subject {
+							margin: 0;
+							display: flex;
+							justify-content: center;
+							.content-name {
+								margin: 0;
+								display: flex;
+								@include font((outline: body, size: large, weight: bold)...);
+								color: color(normal,100);
+							}
+						}
+						.content-summary {
+							margin: 0;
+							display: flex;
+							justify-content: center;
+							@include font((outline: body, size: small-1x, weight: light)...);
+							color: color(normal,020);
+						}
+					}
+					.content-body {
+						.submit-form.module-a {
+							.form-list {
+								display: flex;
+								row-gap: 8rem;
+								.form-item {
+									.form-wrap {
+										position: relative;
+										display: flex;
+										.form-head {
+											@include hidden;
+										}
+										.form-body {
+											display: flex;
+											.form-area {
+												display: flex;
+												.form.checkbox {
+													margin-top: 4rem;
+													.form-elem {
+									
+													}
+													.form-text {
+														@include font((outline: body, size: small-1x, weight: light)...);
+														color: color(normal,010);
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						.data-list.module-a {
+							margin-top: 16rem;
+							.data-item {
+								@include font((outline: body, size: small-2x, weight: light)...);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

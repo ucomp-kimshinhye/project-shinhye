@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_data.head.front.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'order',
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<%-include('../_templates/_header.front.ejs') %>
+		<!-- page-body -->
+		<div class="page-body page-order">
+			<!-- local -->
+			<div id="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-subject" id="localSubject"><span class="local-name">유셀러 공구마켓</span></h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- content -->
+					<div id="content">
+						<!-- content-head -->
+						<div class="content-head">
+							<h3 class="content-subject" id="contentSubject"><span class="content-name">상품 상세</span></h3>							
+							<!-- <div class="content-control"></div> -->
+						</div>
+						<!-- //content-head -->
+						<!-- content-body -->
+						<div class="content-body">
+							<!-- goods-display -->
+							<div class="goods-display module-b style-a type-d">
+								<div class="goods-list">
+									<div class="goods-item">
+										<div class="goods-wrap">
+											<div class="goods-figure" id="goodsFigure">
+												<div class="goods-cover swiper">
+													<div class="cover-list swiper-wrapper">
+														<div class="cover-item swiper-slide"><a href="#" class="cover-wrap"><img class="cover" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="cover-item swiper-slide"><a href="#" class="cover-wrap"><img class="cover" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="cover-item swiper-slide"><a href="#" class="cover-wrap"><img class="cover" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+														<div class="cover-item swiper-slide"><a href="#" class="cover-wrap"><img class="cover" src="./../../assets/images/@temp/img_goods-01.png" alt="상품이미지" /></a></div>
+													</div>
+												</div>
+												<div class="swiper-pagination"></div>
+											</div>
+
+											<script type="text/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+											<script type="text/javascript">
+												var goodsFigure = new Swiper("#goodsFigure .goods-cover.swiper", {
+													loop: true,
+													slidesPerView: "1",
+													spaceBetween: 0,
+													watchOverflow: true,
+													pagination: {
+														el: '#goodsFigure .swiper-pagination',
+														clickable: true,
+														renderBullet: function (index, className) {
+															return '<span class="swiper-pagination-bullet" style="background-image: url(' + this.slides[index].querySelector('.cover').getAttribute('src') + ');"><span class="text">' + index + '</span></span>';
+														},
+													},
+												});
+											</script>
+
+											<div class="goods-inform">
+												<div class="goods-noti">
+													<p class="para">7일 동안만 구매가 가능해요!</p>
+												</div>
+												<div class="goods-head">
+													<p class="goods-subject"><strong class="goods-name">하이언스 더 베이직 수딩플러스 앰플 55ml</strong></p>
+												</div>
+												<div class="goods-sale">
+													<div class="data-list">
+														<span class="data-item">
+															<span class="data-head">판매가</span>
+															<span class="data-body"><strong class="text">8,600</strong><span class="unit">원</span></span>
+														</span>
+													</div>
+												</div>
+												<div class="goods-data">
+													<div class="data-list">
+														<div class="data-item package">
+															<span class="data-head">배송정보</span>
+															<span class="data-body"><strong class="em accent-01">14시까지 결제</strong> 시 당일출고 예정 - <a href="#shippingInfo" onclick="contentsPopup.active('shippingInfo');" class="em normal-02 small-1x symbol-rtl-question">대한통운</a></span>
+														</div>
+														<div class="data-item">
+															<span class="data-head">배송비</span>
+															<span class="data-body">
+																<strong class="text">3,000</strong><span class="unit">원</span>
+																<span class="em accent-01 sub-text">(50,000원 이상 구매시 무료배송)</span>
+																<span class="wbr">제주도 4,000원, 도서산간 7,000원 추가</span>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="goods-side">
+													<!-- order-display -->
+													<div class="order-display type-a">
+														<!-- order-item -->
+														<div class="order-body">
+															<!-- submit-form -->
+															<fieldset class="submit-form module-a">
+																<legend>상품 선택 서식</legend>
+																<div class="form-list">
+																	<div class="form-item">
+																		<div class="form-wrap">
+																			<div class="form-head"><span class="form-name">상품 선택</span></div>
+																			<div class="form-body">
+																				<div class="form-area">
+																					<span class="form select module-a style-b type-line accent-01 large flex">
+																						<select class="form-elem">
+																							<option>상품선택</option>
+																						</select>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</fieldset>
+															<!-- //submit-form -->
+															<!-- submit-form -->
+															<fieldset class="submit-form module-b type-d">
+																<legend>수량 선택 서식</legend>
+																<div class="form-list">
+																	<div class="form-item">
+																		<div class="form-wrap">
+																			<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+																			<div class="form-body">
+																				<div class="form-area">
+																					<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																						<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																						<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																						<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+																					</span>
+																				</div>
+																				<div class="form-data">
+																					<div class="data-list">
+																						<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">1,118,600</span><span class="unit">원</span></span></span>
+																					</div>
+																				</div>
+																				<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="form-wrap">
+																			<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+																			<div class="form-body">
+																				<div class="form-area">
+																					<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																						<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																						<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																						<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+																					</span>
+																				</div>
+																				<div class="form-data">
+																					<div class="data-list">
+																						<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">8,600</span><span class="unit">원</span></span></span>
+																					</div>
+																				</div>
+																				<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="form-item">
+																		<div class="form-wrap">
+																			<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+																			<div class="form-body">
+																				<div class="form-area">
+																					<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																						<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																						<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																						<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+																					</span>
+																				</div>
+																				<div class="form-data">
+																					<div class="data-list">
+																						<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">99,999,600</span><span class="unit">원</span></span></span>
+																					</div>
+																				</div>
+																				<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</fieldset>
+															<!-- //submit-form -->
+														</div>
+														<!-- //order-body -->
+														<!-- order-foot -->
+														<div class="order-foot">
+															<!-- data-board -->
+															<div class="data-board module-a type-c order-detail">
+																<div class="board-wrap">
+																	<div class="board-head"><p class="board-subject"><strong class="board-name">결제 금액</strong></p></div>
+																	<div class="board-body">
+																		<!-- total-amount -->
+																		<div class="total-amount">
+																			<span class="head">총 <strong class="em accent-01">3개</strong>의 상품 금액</span>
+																			<span class="body"><span class="text">91,164</span><span class="unit">원</span></span>
+																		</div>
+																		<!-- //total-amount -->
+																	</div>
+																</div>
+															</div>
+															<!-- //data-board -->
+														</div>
+														<!-- //order-foot -->
+													</div>
+													<!-- //order-display -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- //goods-display -->
+							<!-- section -->
+							<div class="section module-a style-b type-a check-point">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">구입 전 확인하세요!</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- data-list -->
+										<ul class="data-list module-a type-e normal-02 small-1x">
+											<li class="data-item">출고 완료 후 <span class="em accent-01">7일</span>이내 반품 신청 가능</li>
+											<li class="data-item">주문실수, 변심 등 고객 귀책 사유시 반품 배송비 : <span class="em accent-01">2500</span>원</li>
+										</ul>
+										<!-- //data-list -->
+										<!-- guide-board -->
+										<div class="guide-board module-a type-a large" data-bui-expand="expandBoard">
+											<div class="board-wrap">
+												<div class="board-head">
+													<p class="board-subject"><span class="board-name">판매자 공지사항</span></p>
+												</div>
+												<div class="board-body">
+													<p class="para">본품 사용 전 반드시 사용방법 및 주의사항을 숙지하신 후 사용하세요.</p>
+													<ul class="data-list module-a type-c normal-03 small-1x">
+														<li class="data-item">화장품 사용 시 또는 사용 후 직사광선에 의하여 사용부위가 붉은 반점, 부어오름 또는 가려움증 등의 이상 증상이나 부작용이 있는 경우 전문의 등과 상담할 것</li>
+														<li class="data-item">상처가 있는 부위 등에는 사용을 자제할 것 </li>
+														<li class="data-item">보관 및 취급시 어린이의 손이 닿지 않는 곳에 보관하고, 직사광선을 피해서 보관할 것</li>
+													</ul>
+													<div><img src="./../../assets/images/@temp/temp_640x607.png" alt="" /></div>
+												</div>
+											</div>
+										</div>
+										<!-- //guide-board -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+						</div>
+						<!-- //content-body -->
+						<!-- content-side -->
+						<div class="content-side">
+							<p class="para type-b small-1x"><strong class="em accent-01">*</strong> 표시는 필수입력 항목</p>
+							<!-- section -->
+							<div class="section module-a style-a type-a">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">주문자 정보</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- noti-board -->
+										<div class="noti-board module-a style-b type-c normal-02 small-1x symbol-ltr-information">
+											<div class="board-wrap">
+												<div class="board-head"><p class="board-subject"><span class="board-name">입력된 연락처는 아이디로 사용되며, 이메일로 주문내역이 발송됩니다. 정확히 기재해주세요.</span></p></div>
+											</div>
+										</div>
+										<!-- //noti-board -->
+										<!-- submit-form -->
+										<fieldset class="submit-form module-a type-d">
+											<legend>전송 서식</legend>
+											<div class="form-list">
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">이름 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" value="" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">연락처 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="tel" value="" placeholder="숫자만 입력해주세요." />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">이메일 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="email" value="" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">이메일 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large invalid flex">
+																	<input class="form-elem" type="email" value="" />
+																</span>
+															</div>
+															<div class="form-noti">
+																<p class="para invalid">오류 메세지</p>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</fieldset>
+										<!-- //submit-form -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- section -->
+							<div class="section module-a style-a type-a">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">배송지 정보</span></h4>
+										<label class="form checkbox module-a style-a small-1x"><input type="checkbox" class="form-elem" checked="checked" /> <span class="form-text">주문자 정보와 동일</span></label>
+									</div>
+									<div class="section-body">
+										<!-- submit-form -->
+										<fieldset class="submit-form module-a type-d">
+											<legend>전송 서식</legend>
+											<div class="form-list">
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">수령인 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" value="" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">연락처 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="tel" value="" placeholder="숫자만 입력해주세요." />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">주소 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area" style="--width: 344rem;">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" readonly="readonly" value="" />
+																</span>
+																<a class="btn module-b style-b type-fill normal-02 large" href="#"><span class="btn-text">우편번호검색</span></a>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" readonly="readonly" value="" />
+																</span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" placeholder="상세 주소를 입력해주세요." value="" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name" for="requests">요청사항</span></div>
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textarea module-a style-b type-line normal-03 large flex">
+																	<textarea class="form-elem" id="requests" cols="40" rows="3" placeholder="요청사항을 입력해주세요."></textarea>
+																	<span class="form-func">
+																		<span class="form-count"><span class="value">0</span>/150</span>
+																	</span>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<!-- //submit-form -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- section -->
+							<div class="section module-a style-a type-a">
+								<div class="section-wrap">
+									<div class="section-head">
+										<h4 class="section-subject"><span class="section-name">결제 수단</span></h4>
+									</div>
+									<div class="section-body">
+										<!-- submit-form -->
+										<fieldset class="submit-form module-a type-d">
+											<legend>전송 서식</legend>
+											<div class="form-list">
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">결제방법</span></div>
+														<div class="form-body">
+															<div class="form-area">
+																<a class="btn module-b style-b type-line normal-02 large" href="#"><span class="btn-text">무통장입금</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">입금은행 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form select module-a style-b type-line normal-03 large flex">
+																	<select class="form-elem">
+																		<option>신한은행</option>
+																		<option>국민은행</option>
+																		<option>농협은행</option>
+																	</select>
+																</span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" readonly="readonly" value="123456-123456-123456 (예금주:김땡땡)" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">입금자명 <strong class="em accent-01">*</strong></span></div>
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" value="" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<div class="form-wrap">
+														<div class="form-head"><span class="form-name">환불계좌</span></div>
+														<div class="form-body">
+															<div class="form-area">
+																<span class="form select module-a style-b type-line normal-03 large flex">
+																	<select class="form-elem">
+																		<option>새마을금고연합회</option>
+																		<option>국민</option>
+																		<option>농협</option>
+																	</select>
+																</span>
+															</div>
+															<div class="form-area">
+																<span class="form textfield module-a style-b type-line normal-03 large flex">
+																	<input class="form-elem" type="text" value="123456-123456-123456" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</fieldset>
+										<!-- //submit-form -->
+										<!-- noti-board -->
+										<div class="noti-board module-a style-b type-c normal-02 small-1x symbol-ltr-information">
+											<div class="board-wrap">
+												<div class="board-head"><p class="board-subject"><span class="board-name">주문 완료 후 00일 이내 미입금 시 자동으로 주문이 취소됩니다.</span></p></div>
+											</div>
+										</div>
+										<!-- //noti-board -->
+									</div>
+								</div>
+							</div>
+							<!-- //section -->
+							<!-- order-display -->
+							<div class="order-display type-b" id="orderDisplay">
+								<!-- order-item -->
+								<div class="order-body" id="orderOptions">
+									<!-- submit-form -->
+									<fieldset class="submit-form module-a select-option">
+										<legend>상품 선택 서식</legend>
+										<div class="form-list">
+											<div class="form-item">
+												<div class="form-wrap">
+													<div class="form-head"><span class="form-name">상품 선택</span></div>
+													<div class="form-body">
+														<div class="form-area">
+															<span class="form select module-a style-b type-line accent-01 large flex">
+																<select class="form-elem">
+																	<option>상품선택</option>
+																</select>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<!-- //submit-form -->
+									<!-- submit-form -->
+									<fieldset class="submit-form module-b type-c selected-option">
+										<legend>수량 선택 서식</legend>
+										<div class="form-list">
+											<div class="form-item">
+												<div class="form-wrap">
+													<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+													<div class="form-body">
+														<div class="form-area">
+															<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+															</span>
+														</div>
+														<div class="form-data">
+															<div class="data-list">
+																<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">1,118,600</span><span class="unit">원</span></span></span>
+															</div>
+														</div>
+														<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+													</div>
+												</div>
+											</div>
+											<div class="form-item">
+												<div class="form-wrap">
+													<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+													<div class="form-body">
+														<div class="form-area">
+															<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+															</span>
+														</div>
+														<div class="form-data">
+															<div class="data-list">
+																<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">1,118,600</span><span class="unit">원</span></span></span>
+															</div>
+														</div>
+														<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+													</div>
+												</div>
+											</div>
+											<div class="form-item">
+												<div class="form-wrap">
+													<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+													<div class="form-body">
+														<div class="form-area">
+															<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+															</span>
+														</div>
+														<div class="form-data">
+															<div class="data-list">
+																<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">1,118,600</span><span class="unit">원</span></span></span>
+															</div>
+														</div>
+														<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+													</div>
+												</div>
+											</div>
+											<div class="form-item">
+												<div class="form-wrap">
+													<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+													<div class="form-body">
+														<div class="form-area">
+															<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+															</span>
+														</div>
+														<div class="form-data">
+															<div class="data-list">
+																<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">1,118,600</span><span class="unit">원</span></span></span>
+															</div>
+														</div>
+														<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+													</div>
+												</div>
+											</div>
+											<div class="form-item">
+												<div class="form-wrap">
+													<div class="form-head"><span class="form-name">베이직 수딩플러스 앰플 55ml</span></div>
+													<div class="form-body">
+														<div class="form-area">
+															<span class="form quantity module-a style-a type-line normal-03 small-1x">
+																<input class="form-elem" type="number" step="1" min="1" max="100" value="1">
+																<span class="form-step-down" onclick="buiFormDncrementor(this);"></span>
+																<span class="form-step-up" onclick="buiFormIncrementor(this);"></span>
+															</span>
+														</div>
+														<div class="form-data">
+															<div class="data-list">
+																<span class="data-item cost"><span class="data-head">항목 금액</span> <span class="data-body"><span class="text">99,999,600</span><span class="unit">원</span></span></span>
+															</div>
+														</div>
+														<div class="form-func"><button class="btn delete" type="button"><span class="btn-text">삭제</span></button></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<!-- //submit-form -->
+								</div>
+								<!-- //order-body -->
+								<!-- order-foot -->
+								<div class="order-foot">
+									<!-- data-board -->
+									<div class="data-board module-a type-c order-detail">
+										<div class="board-wrap">
+											<div class="board-head"><p class="board-subject"><strong class="board-name">결제 금액</strong></p></div>
+											<div class="board-body">
+												<!--data-display-->
+												<div class="data-display module-a type-b small-2x">
+													<ul class="data-list">
+														<li class="data-item">
+															<div class="data-wrap">
+																<span class="data-head"><span class="data-name">총 상품금액</span></span>
+																<span class="data-body"><strong class="em normal-02">95,564원</strong></span>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<span class="data-head"><span class="data-name">배송비</span></span>
+																<span class="data-body"><strong class="em normal-02">+ 2,500원</strong></span>
+															</div>
+														</li>
+														<li class="data-item">
+															<div class="data-wrap">
+																<span class="data-head"><span class="data-name">추가 배송비</span></span>
+																<span class="data-body"><strong class="em normal-02">0원</strong></span>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<!--//data-display-->
+												<!-- total-amount -->
+												<div class="total-amount">
+													<span class="head">최종결제금액</span>
+													<span class="body"><span class="text">91,164</span><span class="unit">원</span></span>
+												</div>
+												<!-- //total-amount -->
+											</div>
+										</div>
+									</div>
+									<!-- //data-board -->
+									<!-- submit-form -->
+									<fieldset class="submit-form module-a type-c order-accept">
+										<legend>개인정보 수집 이용 동의 선택 서식</legend>
+										<div class="form-list">
+											<div class="form-item">
+												<div class="form-wrap">
+													<!-- <div class="form-head"><span class="form-name">개인정보 수집 이용 동의</span></div> -->
+													<div class="form-body">
+														<div class="form-area">
+															<label class="form checkbox module-a style-a small-1x"><input type="checkbox" class="form-elem" title="개인정보 수집 이용 동의 선택" /> <span class="form-text">아래 내용에 모두 동의합니다. <span class="em accent-01">(필수)</span></span></label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<!-- //submit-form -->
+									<!-- info-board -->
+									<div class="noti-board order-policy">
+										<div class="board-wrap">
+											<div class="board-head"><p class="board-subject"><strong class="board-name">비회원 주문 개인정보 수집 이용 동의</strong></p></div>
+											<div class="board-func">
+												<span class="button-area">
+													<a href="#privacyPolicy" onclick="contentsPopup.active('privacyPolicy');" class="em normal-01 small-2x symbol-rtl-chevron-right">약관보기</a>
+												</span>
+											</div>
+											<div class="board-body">
+												<p class="para">비회원 주문의 개인정보 수집 이용 동의에 대한 내용을 확인하였으며, 이에 동의합니다.</p>
+												<p class="para">결제 정보를 확인했으며, 구매 진행에 동의합니다.</p>
+											</div>
+										</div>
+									</div>
+									<!-- info-board -->
+								</div>
+								<!-- //order-foot -->
+								<!-- order-util -->
+								<div class="order-util">
+									<!-- button-display -->
+									<div class="button-display module-a style-a type-a">
+										<span class="button-area">
+											<button class="btn module-b style-a type-fill large-2x accent-01 flex" type="submit"><span class="btn-text">25,800원 주문하기</span></button>
+										</span>
+									</div>
+									<!-- //button-display -->
+								</div>
+								<!-- //order-foot -->
+							</div>
+							<!-- //order-display -->
+						</div>
+						<!-- //content-side -->
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+						<script type="text/javascript">
+							// 상품 상세 > 상품 옵션
+							const orderDisplay = new ScrollTrigger.create({
+								trigger: '.content-side',
+								start: 'top top',
+								end: 'bottom bottom',
+								toggleClass: 'active',
+								onEnter: function(self) {document.querySelector('#orderDisplay').classList.add('active');},
+								onLeaveBack: function(self) {document.querySelector('#orderDisplay').classList.remove('active');},
+								onLeave: function(self) {document.querySelector('#orderDisplay').classList.add('on-leave');},
+								onEnterBack: function(self) {document.querySelector('#orderDisplay').classList.remove('on-leave');},
+								// markers: true
+							});
+
+							// orderDisplay.refresh(); 사이즈 다시 불러오기
+						</script>
+					</div>
+					<!-- //content -->
+				</div>
+				<!-- //local-body -->
+			</div>
+			<!-- //local -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_footer.front.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+<%-include('../_popup/_contentsPopup.shippingInfo.ejs') %>
+<%-include('../_popup/_contentsPopup.privacyPolicy.ejs') %>
+</body>
+</html>

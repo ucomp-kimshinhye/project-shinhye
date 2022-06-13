@@ -1,0 +1,414 @@
+@import '_variables';
+
+/*
+ * list style
+ */
+
+p.data-list {
+	margin: 0;
+}
+
+ul.order-list,
+ul.data-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+p.data-item {
+	margin: 0;
+}
+
+.data-list {
+	>li.data-item {
+		a.em {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+/**
+* @type			component
+* @name			data-list
+* @moudle		module-a
+* @update		2022-05-04
+*/
+
+
+$list-accent: (
+	'normal-00' color(normal, 100) color(normal, 100),
+	'normal-01' color(normal, 010) color(normal, 010),
+	'normal-02' color(normal, 020) color(normal, 020),
+	'normal-03' color(normal, 030) color(normal, 030),
+
+	'accent-01' color(accent, 010) color(accent, 010),
+	'accent-02' color(accent, 020) color(accent, 020),
+);
+
+$list-accent-e: (
+	'normal-02' color(normal, 020) color(normal, 030),
+);
+
+
+$list-outline: (
+	'large-3x'	4rem 4rem map-get($font-outline, 'body', 'large-3x', 'line-height'),
+	'large-2x'	4rem 4rem map-get($font-outline, 'body', 'large-2x', 'line-height'),
+	'large-1x'	4rem 4rem map-get($font-outline, 'body', 'large-1x', 'line-height'),
+	'large'		4rem 4rem map-get($font-outline, 'body', 'large', 'line-height'),
+	'medium'	4rem 4rem map-get($font-outline, 'body', 'medium', 'line-height'),
+	'small'		4rem 4rem map-get($font-outline, 'body', 'small', 'line-height'),
+	'small-1x'	4rem 4rem map-get($font-outline, 'body', 'small-1x', 'line-height'),
+	'small-2x'	4rem 4rem map-get($font-outline, 'body', 'small-2x', 'line-height'),
+	'small-3x'	4rem 4rem map-get($font-outline, 'body', 'small-3x', 'line-height'),
+);
+
+
+
+.data-list.module-a {
+	.data-item {
+		position: relative;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+		.em {
+			// font-weight: 500;
+		}
+	}
+	
+	// accent
+	@each $name, $accent-color in $list-accent {
+		&.#{$name} {
+			color: $accent-color;
+			// @debug "divider offset: #{$accent-color}";
+			// bullet
+			&.type-a {.data-item::before {background-image: icon(bullet-dash, $accent-color);}}
+			&.type-b {.data-item::before {background-image: icon(bullet-square, $accent-color);}}
+			&.type-c {.data-item::before {background-image: icon(bullet-dot, $accent-color);}}
+			&.type-d {.data-item::before {background-image: icon(bullet-star, $accent-color);}}
+		}
+	}
+
+	// accent
+	@each $name, $accent-color in $list-accent-e {
+		&.type-e.#{$name} {
+			.data-item {color: $accent-color;}
+			.data-item::before {background-image: icon(check, $accent-color)};
+		}
+	}
+
+	// outline
+	@each $name, $column-gap, $row-gap, $line-height in $list-outline {
+		&.#{$name} {		
+			line-height: $line-height;
+			font-size: calc($line-height/1.5);
+
+			.data-item {
+				padding-left: $line-height;
+
+				&::before {
+					width: $line-height;
+					height: $line-height;
+				}
+
+				+.data-item {
+					margin-top: $row-gap;
+				}
+			}
+
+			
+			&.type-e {
+				.data-item {
+					padding-left: $line-height + $column-gap;
+				}
+			}
+		}
+	}
+}
+
+
+.order-list.module-a {
+	counter-reset: order-count;
+
+	.order-item {
+		position: relative;
+		counter-increment: order-count;
+
+		&::before {
+			content: counter(order-count) ". ";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			text-align: right;
+		}
+	}
+	
+	// accent
+	@each $name, $accent-color in $list-accent {
+		&.#{$name} {
+			color: $accent-color;
+			// bullet
+			&.type-a {.data-item::before {background-image: icon(bullet-dash, $accent-color);}}
+		}
+	}
+
+	// outline
+	@each $name, $column-gap, $row-gap, $line-height in $list-outline {
+		&.#{$name} {		
+			line-height: $line-height;
+			font-size: calc($line-height/1.5);
+
+			.order-item {
+				padding-left: $line-height + $column-gap;
+				+.order-item {
+					margin-top: $row-gap;
+				}
+
+				&::before {
+					width: $line-height;
+					height: $line-height;
+				}
+			}
+		}
+	}
+}
+
+/* */
+.order-list {
+	>.order-item {
+		>.data-list {
+			margin: 8rem 0 12rem 0;
+		}
+	}
+}
+
+
+
+
+
+
+/*
+ * module outline
+ *
+ * @ $line-height-head
+ * @ $line-height-body
+ * @ $font-size
+ * @ $font-weight
+ * @ $margin = $line-height - 4
+ */
+$data-display-module-outline: (
+	'small-1x'		18rem  16rem  1.50 400 14rem,
+	'small'			20rem  18rem  1.50 400 16rem,
+	'medium'		24rem  20rem  1.50 400 20rem,
+	'large'			28rem  24rem  1.50 400 24rem,
+	'large-1x'		32rem  28rem  1.50 400 28rem,
+);
+
+/*
+* @ module accent
+*
+* @ $head-color: text-color
+* @ $data-head: icon-color
+* @ $body-color: text-color
+* @ $border-color: border-color
+* @ $background-color: background-color
+*/
+$data-display-module-accent: (
+	'normal-02' color(base, 080) color(base, 020) color(base, 050) color(base, 020) color(base, 005),
+	'normal-03' color(base, 080) color(base, 010) color(base, 020) color(base, 020) color(base, 005),
+	'normal-04' color(base, 040) color(base, 040) color(base, 040) color(base, 020) color(base, 005),
+);
+
+.data-display.module-a[class*=type-] {
+	.data-list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 16rem;
+
+		.data-item {
+			.data-wrap {
+				display: flex;
+				position: relative;
+
+				.data-head {
+					display: block;
+
+					.data-name {
+						display: block;
+						color: color(base, 050);
+					}
+				}
+				.data-body {
+					color: color(base, 070);
+				}
+			}
+			// .data-side {
+			// 	margin-top: 4rem;
+			// 	@include font((outline: body, size: small-1x)...);
+			// 	color: color(base, 030);
+			// 	background-color: rgba(0, 255, 255, 0.171);
+			// }
+		}
+	}
+
+	&.small-1x {
+		.data-list {
+			row-gap: 16rem;
+			@include font((outline: body, size: small-2x, weight: light)...);
+		}
+	}
+
+	&.small-2x {
+		.data-list {
+			row-gap: 8rem;
+			@include font((outline: body, size: small-2x, weight: light)...);
+		}
+	}
+
+	&.type-a {
+		.data-list {
+			.data-wrap {
+				column-gap: 16rem;
+
+				.data-head {
+					width: 72rem;
+					flex-shrink: 0;
+				}
+
+				.data-body {
+					flex: 1 1 100%;
+				}
+			}
+		}
+	}
+
+	&.type-b {
+		.data-list {
+			.data-wrap {
+				justify-content: space-between;
+				column-gap: 16rem;
+
+				.data-head {
+					width: 72rem;
+					flex-shrink: 0;
+				}
+
+				.data-body {
+					flex: 1 1 100%;
+					text-align: right;
+				}
+			}
+		}
+	}
+
+	&.type-c {
+		.data-list {
+			.data-wrap {
+				flex-direction: column;
+				row-gap: 4rem;
+
+				.data-head {
+
+				}
+
+				.data-body {
+					
+				}
+			}
+		}
+	}
+	
+	&.type-d {
+		.data-list {
+			.data-wrap {
+				@include respond-above(large) {
+					column-gap: 16rem;
+					.data-head {
+						min-width: 72rem;
+					}
+				}
+				@include respond-below(large) {
+					row-gap: 4rem;
+					flex-direction: column;
+
+					.data-head {
+						width: 72rem;
+					}
+				}
+
+				.data-head {
+					flex-shrink: 0;
+				}
+
+				.data-body {
+					flex: 1 1 100%;
+				}
+			}
+		}
+	}
+}
+
+// .data-display.module-a {
+
+	// outline
+// 	@each $name, $line-height-head, $line-height-body, $font-size, $font-weight, $margin in $data-display-module-outline {
+// 		&.#{$name} {
+// 			.data-head {
+// 				line-height: $line-height-head;
+// 				.data-name{
+// 					font-size: $font-size;
+// 					font-weight: $font-weight;
+// 				}
+// 			}
+// 			.data-body {
+// 				line-height: $line-height-body;
+// 				font-size: $font-size;
+// 				font-weight: $font-weight;
+// 			}
+// 			&.style-a {
+			
+// 			}
+// 			&.style-b {
+// 				border-radius: $line-height-head * 0.5;
+// 			}
+// 		}
+// 	}
+// 
+
+// 	// accent
+// 	@each $name, $head-color, $icon-color, $body-color, $border-color, $background-color in $data-display-module-accent {
+// 		&.#{$name} {
+// 			.data-head {
+// 				.data-name{
+// 					color: $head-color;
+// 				}
+				
+// 			}
+// 			.data-body {
+// 				color: $body-color;
+// 			}
+// 			&.none {
+			
+// 			}
+// 			&.line {
+// 				border: solid;
+// 				border-color: $border-color;
+// 				background-color: $background-color;
+// 			}
+// 			&.fill{
+// 				background-color: $background-color;
+// 			}
+// 		}
+// 	}
+// }
+
+

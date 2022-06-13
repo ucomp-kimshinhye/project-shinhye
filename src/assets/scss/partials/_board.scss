@@ -1,0 +1,523 @@
+
+/*
+* @ mark module accent
+*
+* @ $text-color
+* @ $border-color
+* @ $background-color
+*/
+$board-module-accent: (
+	'normal-00': (
+		'none' color(normal, 100) transparent transparent,
+		'line' color(normal, 100) color(normal, 100) color(normal, 000),
+		'fill' color(normal, 000) color(normal, 100) color(normal, 100),
+	),
+	'normal-01': (
+		'none' color(normal, 020) transparent transparent,
+		'line' color(normal, 020) color(normal, 020) color(normal, 000),
+		'fill' color(normal, 000) color(normal, 020) color(normal, 020),
+	),
+	'normal-02': (
+		'none' color(normal, 030) transparent transparent,
+		'line' color(normal, 030) color(normal, 030) color(normal, 000),
+		'fill' color(normal, 000) color(normal, 030) color(normal, 030),
+	),
+	'normal-03': (
+		'none' color(base, 050) transparent transparent,
+		'line' color(normal, 040) color(normal, 040) color(normal, 000),
+		'fill' color(base, 060) color(base, 010) color(base, 010),
+	),
+	'accent-01': (
+		'none' color(accent, 010) transparent transparent,
+		'line' color(accent, 010) color(accent, 010) color(accent, 000),
+		'fill' color(accent, 000) color(accent, 010) color(accent, 010),
+	),
+);
+
+/*
+ * module-a outline
+ *
+ * @ $padding
+ * @ $line-height
+ * @ $font-size
+ * @ $font-weight
+ * @ $border-width
+ * @ $border-radius
+ */  
+ $board-module-a-outline: (
+	'small-1x'		12rem 12rem 18rem 1.50 500 1rem 8rem,
+	'small'			10rem 12rem 20rem 1.50 500 1rem 8rem,
+	'medium'		14rem 12rem 24rem 1.50 500 1rem 8rem,
+	'large'			16rem 12rem 28rem 1.50 500 1rem 8rem,
+	'large-1x'		18rem 12rem 32rem 1.50 500 1rem 8rem,
+);
+/**
+ * @type module
+ * @name info-board
+ * @modle a
+ */
+ .info-board.module-a {
+	.board-wrap {
+		display: flex;
+		flex-direction: column;
+
+		.board-head {
+			display: flex;
+			flex-direction: column;
+			row-gap: 8rem;
+
+			.board-caption {
+				margin: 0;
+			}
+
+			.board-subject {
+				margin: 0;
+				.board-name{
+					display: block;
+					color: color(normal, 010);
+				}	
+			
+			}
+
+			.board-summary {
+				margin: 0;
+
+				.wbr {
+					display: block;
+					@include font((outline: body, size: small-1x)...);
+					color: color(normal,030);
+				}
+			}
+		}
+
+		.board-util {
+			.button-area {
+				display: flex;
+				column-gap: 6rem;
+			}
+		}
+	}
+	&[class*="attr-"] {
+		.board-wrap {
+			&::before {
+				content: '';
+				display: block;
+				width: 160rem;
+				height: 160rem;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 100%;
+			}
+		}
+	}
+
+	&.attr-done {
+		.board-wrap::before {
+			background-image: url(./../images/svg/infoboard-done.svg);
+		}
+	}
+
+
+	// type
+	&.type-a {
+	}
+
+	&.type-b {
+		.board-wrap {
+			.board-head {
+				align-items: flex-end;
+				text-align: right;
+			}
+			align-items: flex-end;
+		}
+	}
+
+	&.type-c {
+		.board-wrap {
+			.board-head {
+				text-align: center;
+				align-items: center;
+			}
+			align-items: center;
+		}
+	}
+
+	//style
+	&[class*=style-] {
+		border-style: solid;
+	}
+
+	// accent
+	@each $accent-name in $board-module-accent {
+		&.#{nth($accent-name, 1)} {
+			@each $type-name, $color, $border-color, $background-color in map-get($board-module-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					background-color: $background-color;
+					border-color: $border-color;		
+					.board-wrap {
+						.board-head {
+							.board-name {
+								color: $color;
+							}
+						}
+					}
+
+					&[class*=attr-caution] .board-subject::before {background-image: icon(circle-caution, $color);}
+					&[class*=attr-information] .board-subject::before {background-image: icon(circle-caution, $color);}
+				}
+			}
+		}
+	}
+
+
+	// outline
+	@each $name, $padding, $row-gap, $line-height, $font-size, $font-weight, $border-width, $border-radius in $board-module-a-outline {
+		&.#{$name} {
+			line-height: $line-height;
+			font-size: calc($line-height / $font-size);
+
+			&[class*=style-] {
+				padding: $padding;
+				border-width: $border-width;
+			}
+
+			&.style-b {
+				border-radius: $padding * 0.4;
+			}
+	
+			&.style-c {
+				border-radius: $line-height * 0.5;
+			}
+
+			&[class*=attr-] .board-subject::before {
+				margin-right: $line-height * 0.1;
+				width: $line-height;
+				height: $line-height;
+			}
+
+			.board-wrap {
+				.board-head {
+					.board-subject {
+						font-weight: $font-weight;
+						font-size: $line-height * 0.8;
+						line-height: $line-height;
+					}
+
+					~.board-body {
+						margin-top: $line-height * 0.8;
+					}
+				}
+			}
+		}
+	}	
+}
+
+
+
+
+/**
+ * @type module
+ * @name noti-board
+ * @modle a
+ */
+.noti-board {
+	.board-wrap {
+		.board-head {
+			display: flex;	
+
+			.board-subject {
+				display: flex;
+				margin: 0;
+
+				.board-name {
+					display: block;
+				}
+			}
+			
+			.board-summary {
+				margin: 0;
+				color: color(base, 060);
+
+				.wbr {
+					display: block;
+				}
+			}
+		}
+	}
+
+	&.type-b {
+		display: flex;
+		justify-content: right;
+
+		.board-wrap {
+			.board-head {
+				align-items: flex-end;
+				text-align: right;
+			}
+		}
+	}
+	
+	&.type-c { 
+		display: flex;
+		justify-content: center;
+
+		.board-wrap {
+			display: flex;
+			flex-wrap: wrap;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&[class*=symbol-ltr-] .board-subject::before,
+	&[class*=symbol-rtl-] .board-subject::after {
+		content: '';
+		flex-shrink: 0;
+		display: block;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	// accent
+	@each $name, $font-color in $text-accent {
+		&.#{$name} {
+			color: $font-color;
+
+			@each $icon-name, $icon in $symbol-list {
+				&.symbol-ltr-#{$icon-name} {.board-subject::before {background-image: icon($icon-name, $font-color);}}
+				&.symbol-rtl-#{$icon-name} {.board-subject::after {background-image: icon($icon-name, $font-color);}}
+			}
+		}
+	}
+
+	// outline
+	@each $name, $line-height, $font-size in map-get($font-outline, 'body') {
+		&.#{$name} {
+			.board-wrap {
+				.board-head {
+					.board-subject {
+						line-height: map-get($font-outline, 'body', $name, line-height);
+						font-size: map-get($font-outline, 'body', $name, font-size);
+					}
+				}
+			}
+
+			&[class*=symbol-ltr-] .board-subject::before,
+			&[class*=symbol-rtl-] .board-subject::after {
+				width: map-get($font-outline, 'body', $name, line-height);
+				height: map-get($font-outline, 'body', $name, line-height);
+			}
+
+			&.style-a {
+				padding: map-get($font-outline, 'body', $name, line-height) * 0.5;
+				border: 1rem solid color(base, 010);
+			}
+
+			&.style-b {
+				padding: map-get($font-outline, 'body', $name, line-height) * 0.5;
+				background-color: color(base, 010);
+			}
+		}
+	}
+}
+
+
+
+/**
+ * @type module
+ * @name info-board
+ * @modle a
+ */
+ .guide-board.module-a {
+
+	&[data-bui-expand="expandBoard"] {
+		.board-wrap {
+			.board-head {
+				.board-subject {
+					.btn.expand {
+						@include font((outline: body, size: small-1x)...);
+						color:  color(normal, 030);
+
+						&::after {
+							content: '';
+							display: block;
+							width: 24rem;
+							height: 24rem;
+							background: icon(chevron-down, color(normal, 030)) no-repeat center/cover;
+						}
+
+						&.active {
+							&::after {
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&:not(.active) {
+		.board-wrap {
+			.board-body {
+				display: none;
+			}
+		}
+	}
+
+	.board-wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		row-gap: 12rem;
+
+		.board-head {
+			display: flex;
+			align-items: center;
+			justify-content: stretch;
+
+			.board-subject {
+				flex: 1 1 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 0;
+
+				.board-name{
+					display: flex;
+					color: color(normal, 010);
+					@include font((outline: body, size: small-1x)...);
+				}	
+			
+			}
+		}
+		
+		.board-body {
+			display: flex;
+			flex-direction: column;
+			row-gap: 24rem;
+			padding-top: 32rem;
+			border-top: 1px solid #ded8dd;
+
+			.para {
+				@include font((outline: body, size: small-1x, weight: light)...);
+				color: color(normal, 020);
+
+				.wbr {
+					display: inline-block;
+					vertical-align: top;	
+				}
+			}
+		}
+
+
+	}
+
+
+
+
+	// type
+	&.type-a {
+	}
+
+	&.type-b {
+		.board-wrap {
+			.board-head {
+				align-items: flex-end;
+				text-align: right;
+			}
+			align-items: flex-end;
+		}
+	}
+
+	&.type-c {
+		.board-wrap {
+			.board-head {
+				text-align: center;
+				align-items: center;
+			}
+			align-items: center;
+		}
+	}
+
+	//style
+	&[class*=style-] {
+		border-style: solid;
+	}
+
+	// accent
+	@each $accent-name in $board-module-accent {
+		&.#{nth($accent-name, 1)} {
+			@each $type-name, $color, $border-color, $background-color in map-get($board-module-accent, nth($accent-name, 1)) {
+				&.type-#{$type-name} {
+					background-color: $background-color;
+					border-color: $border-color;		
+					.board-wrap {
+						.board-head {
+							.board-name {
+								color: $color;
+							}
+						}
+					}
+
+					&[class*=attr-caution] .board-subject::before {background-image: icon(circle-caution, $color);}
+					&[class*=attr-information] .board-subject::before {background-image: icon(circle-caution, $color);}
+				}
+			}
+		}
+	}
+
+
+	// outline
+	@each $name, $padding, $row-gap, $line-height, $font-size, $font-weight, $border-width, $border-radius in $board-module-a-outline {
+		&.#{$name} {
+			line-height: $line-height;
+			font-size: calc($line-height / $font-size);
+
+			&[class*=style-] {
+				padding: $padding;
+				border-width: $border-width;
+			}
+
+			&.style-b {
+				border-radius: $padding * 0.4;
+			}
+	
+			&.style-c {
+				border-radius: $line-height * 0.5;
+			}
+
+			&[class*=attr-] .board-subject::before {
+				margin-right: $line-height * 0.1;
+				width: $line-height;
+				height: $line-height;
+			}
+
+			.board-wrap {
+				.board-head {
+					.board-subject {
+						font-weight: $font-weight;
+						font-size: $line-height * 0.8;
+						line-height: $line-height;
+					}
+				}
+			}
+		}
+	}	
+}
+
+
+// .clip-test {
+// 	&::before {
+// 		content: '';
+// 		display: block;
+// 		width: 100rem;
+// 		height: 100rem;
+// 		background-color: green;
+// 		mask-repeat: no-repeat;
+// 		mask-position: center;
+// 		mask-image: url(./../images/svg/info_board_laptop.svg);
+// 	}
+	
+// 	filter: drop-shadow(0 4rem 8rem rgba(0,0,0,0.5));
+// }

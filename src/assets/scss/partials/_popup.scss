@@ -1,0 +1,313 @@
+@import '_variables';
+@import '_mixin';
+
+/**
+ * @type		component
+ * @name		content-popup
+ * @moudle		module-a
+ * @update		2022-04-11
+ */
+ @keyframes content-popup-active {
+	0% {
+		visibility: hidden;
+		opacity: 0;
+	}
+	100% {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+@keyframes content-popup-inactive {
+	0% {
+		visibility: visible;
+		opacity: 1;
+	}
+	100% {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+html.active-content-popup {	
+	body {
+		overflow: hidden;
+	}
+}
+
+.content-popup.module-a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	z-index: 60;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 24rem;
+	visibility: hidden;
+	opacity: 0;
+	background-color: rgba(0,0,0,0.0);
+
+	&:not(.enabled) {
+		display: none;
+	}
+
+	&:not(.active) {
+		animation-name: content-popup-inactive;
+		animation-duration: 0.25s;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+	}
+
+	&.active {
+		background-color: rgba(0,0,0,0.4);
+		animation-name: content-popup-active;
+		animation-duration: 0.25s;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+	}
+
+	.popup-page-body {
+		display: flex;
+		position: relative;
+		opacity: 1;
+		visibility: visible;
+		overflow: hidden;
+		width: 360rem;
+		max-width: 100%;
+		border-radius: 4rem;
+		box-shadow: 0 4rem 8rem 0 rgba(0,0,0,0.15), 0 1rem 2rem 0 rgba(0,0,0,0.1);
+		transition: visibility 0.25s ease, opacity 0.25s ease;
+		background-color: color(base, 000);
+		
+		.popup-local {
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			width: 100%;
+			
+			.popup-local-head {
+				display: flex;
+				// justify-content: center;
+				align-items: center;
+				position: relative;
+				z-index: 1;
+				padding: 0 20rem;
+				min-height: 64rem;
+				box-shadow: 0 1rem 0 0 color(base, 010);
+				
+				.popup-local-title {
+					margin: 0;
+					
+					.popup-local-name {
+						display: block;
+						color: color(normal, 010);
+						@include font((outline: body, size: small)...);
+						@include ellipsis(1);
+					}
+				}
+			}
+
+			.popup-local-body {
+				flex: 1 1 100%;
+				overflow: hidden;
+
+				display: flex;
+				flex-direction: column;
+				
+				.popup-content {
+					flex: 1 1 100%;
+					overflow: hidden;
+
+					display: flex;
+					flex-direction: column;
+
+					.popup-content-body {
+						flex: 1 1 100%;
+						padding: 32rem 20rem 32rem 20rem;
+						overflow-y: auto;
+						@include overflow-scroll(default, dark);
+					}
+				}
+			}
+
+			.popup-local-func {
+				display: flex;
+				align-items: center;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				padding: 0 16rem;
+				height: 64rem;
+
+				.button-area {
+					display: flex;
+					.btn.popup-close {
+						flex-shrink: 0;
+						width: 24rem;
+						height: 24rem;
+						svg {
+							fill: color(base, 100);
+						}
+					}
+				}
+			}		
+		}
+	}
+}
+
+/**
+ * @type		component
+ * @name		toast-popup
+ * @moudle		module-a
+ * @update		2022-03-27
+ */
+@keyframes toast-popup-active {
+	0% {
+		transform: translate(0, 120%);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes toast-popup-inactive {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 120%);
+	}
+}
+
+.toast-popup.module-a.style-b {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+
+	position: absolute;
+	z-index: 50;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	outline: none;
+	background-color: rgba(0,0,0,0);
+	transition: background-color 0.5s ease;
+
+	&:not(.enabled) {
+		display: none;
+	}
+
+	&:not(.active) {
+		.popup-page-body {
+			animation-name: toast-popup-inactive;
+			animation-duration: 0.25s;
+			animation-fill-mode: forwards;
+			animation-timing-function: cubic-bezier(.2,0,0,1);
+		}
+	}
+	
+	&.active {
+		background-color: rgba(0,0,0,0.2);
+
+		.popup-page-body {
+			animation-name: toast-popup-active;
+			animation-duration: 0.25s;
+			animation-fill-mode: forwards;
+			animation-timing-function: cubic-bezier(.2,0,0,1);
+		}
+	}
+
+	.popup-page-body {
+		flex: 0 0 100%;
+		width: 100%;
+
+		.popup-local {
+			overflow: hidden;
+			border-top-right-radius: 16rem;
+			border-top-left-radius: 16rem;
+			background-color: #fff;
+
+			.popup-local-head {
+				@include hidden;
+			}
+
+			.popup-local-body {
+				margin: 56rem 0 24rem 0;
+				padding-right: $container-gap;
+				padding-left: $container-gap;
+			}
+
+
+			.btn.popup-close {
+				position: absolute;
+				top: 16rem;
+				left: 50%;
+				transform: translate(-50%, 0);
+
+				svg {
+					fill: color(base, 040);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * @type		component
+ * @name		content-popup
+ * @moudle		module-a
+ * @update		2022-05-30
+ * @subject		주문취소
+ */
+.content-popup#cancelOrder {
+	.popup-content-body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 16rem;
+
+		.info-board.module-temp {
+			.board-wrap {
+				.board-head {
+					.board-subject {
+						margin: 0;
+						@include font((outline: body, size: small-1x)...);
+						color: color(normal, 010);
+		
+						.board-name {
+							display: block;
+						}
+					}
+		
+					.board-summary {
+						margin: 0;
+						@include font((outline: body, size: small-2x)...);
+						color: color(normal, 030);
+					}
+				}
+			}
+		}
+	}
+}
+
+/**
+ * @type		component
+ * @name		content-popup
+ * @moudle		module-a
+ * @update		2022-05-30
+ * @subject		배송안내
+ */
+.content-popup#shippingInfo {
+	.popup-content-body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 16rem;
+	}
+}
+
+

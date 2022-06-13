@@ -1,0 +1,99 @@
+@import '_variables';
+
+/*
+ * @ text accent
+ * @ $text-color
+ */
+ $text-outline: (
+	'small-5x'	12rem calc(12rem / 1.5),
+	'small-4x'	16rem calc(16rem / 1.5),
+	'small-3x'	18rem calc(18rem / 1.5),
+	'small-2x'	20rem calc(20rem / 1.5),
+	'small-1x'	24rem calc(24rem / 1.5),
+	'small'		28rem calc(28rem / 1.5),
+	'medium'	32rem calc(32rem / 1.5),
+	'large'		40rem calc(40rem / 1.5),
+	'large-1x'	48rem calc(48rem / 1.5),
+	'large-2x'	56rem calc(56rem / 1.5),
+	'large-3x'	64rem calc(64rem / 1.5),
+	'large-4x'	72rem calc(72rem / 1.5),
+	'large-5x'	80rem calc(80rem / 1.5),
+);
+
+.em svg {
+	display: block;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+em.em {
+	font-style: normal;
+}
+
+a.em {
+	&:not([class*=normal-]):not([class*=accent-]) {
+		color: inherit;
+	}
+}
+
+
+a.em,
+strong.em,
+span.em {
+	display: inline-flex;
+}
+
+.para {
+	margin: 0;
+}
+
+.para,
+.em {
+	&.type-a {
+	}
+
+	&.type-b {
+		text-align: right;
+	}
+	&.type-c {
+		text-align: center;
+	}
+
+	&[class*=symbol-ltr-]::before,
+	&[class*=symbol-rtl-]::after {
+		content: '';
+		flex-shrink: 0;
+		display: block;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+
+	// accent
+	@each $name, $font-color in $text-accent {
+		&.#{$name} {
+			color: $font-color;
+
+			@each $icon-name, $icon in $symbol-list {
+				&.symbol-ltr-#{$icon-name} {&::before {background-image: icon($icon-name, $font-color);}}
+				&.symbol-rtl-#{$icon-name} {&::after {background-image: icon($icon-name, $font-color);}}
+			}
+		}
+	}
+
+	// outline
+	@each $name, $line-height, $font-size in $text-outline {
+		&.#{$name} {
+			line-height: $line-height;
+			font-size: $font-size;
+
+			// icon
+			&[class*=symbol-ltr-]::before,
+			&[class*=symbol-rtl-]::after {
+				width: $line-height;
+				height: $line-height;
+			}
+		}
+	}
+}
