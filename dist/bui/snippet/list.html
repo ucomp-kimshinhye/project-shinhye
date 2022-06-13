@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Basic User Interface</title>
+<link rel="shortcut icon" href="./../../assets/images/bui/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+<link rel="stylesheet" type="text/css" href="./../../assets/css/bui.page.snippet.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+<script type="text/javascript" src='https://unpkg.com/focus-within-polyfill/dist/focus-within-polyfill.js'></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/bash.min.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<!-- <script type="text/javascript" src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script> -->
+<!-- <script type="text/javascript" src="./../../assets/js/polyfill.js"></script> -->
+
+<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var currentPage = function(pageItem, pageName) {
+			var localItems = document.querySelectorAll(pageItem);
+			Array.prototype.forEach.call(localItems, function(localItem, index) {
+				var localName = localItem.querySelector(pageName).getAttribute('href');
+				if (localName.substring(localName.lastIndexOf('/') + 1) === document.URL.substring(document.URL.lastIndexOf('/') + 1)) {
+					localItem.classList.add('current');
+				}
+			});
+		}
+		currentPage('#tableOfContent .lnb-item', '.lnb-name');		
+	});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="page">
+		<!--page-head-->
+		<div class="page-head" id="head">
+			<h1 class="page-subject" title="USELLER"><a class="page-name" href="/"><abbr title="Basic User Interpace">BUI</abbr></a></h1>
+			<!--page-control-->
+			<div class="page-control">
+				<div class="control-list">
+					<span class="control-item"><a class="control-name" href="#aside" onclick="layoutPageSide.active('aside');"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><title>Go to Table of Content</title><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></a></span>
+				</div>
+			</div>
+		</div>
+		<!--//page-head-->
+		<!--page-side-->
+		<div class="page-side" id="aside" data-bui-toggle="layoutPageSide">
+			<!--aside-body-->
+			<div class="aside-body">
+				<!--section-->
+				<div class="section toc" id="tableOfContent">
+					<div class="section-head">
+						<h2 class="section-title"><span class="section-name">Table of Content</span></h2>
+					</div>
+					<div class="section-body">
+						<ul class="gnb-list">
+							<li class="gnb-item"><span class="gnb-name">preview</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../preview/front.html">front</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../preview/admin.html">admin</a></li> -->
+								</ul>
+							</li>
+							<li class="gnb-item"><span class="gnb-name">snippet</span>
+								<ul class="lnb-list">
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/color.html">color</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/font.html">font</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/icon.html">icon</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/button.html">button</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/mark.html">mark</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/form.html">form</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/table.html">table</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/list.html">list</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/board.html">board</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/goods.html">goods</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/fieldset.html">fieldset</a></li>
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/tab.html">tab</a></li>
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/post.html">post</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/tooltip.html">tooltip</a></li> -->
+									<li class="lnb-item"><a class="lnb-name" href="./../snippet/interaction.html">interaction</a></li><!-- bui.js -->
+									
+									<!-- 해야 하는것 -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/utility.html">utility</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/popup.html">popup</a></li> -->
+									<!-- <li class="lnb-item"><a class="lnb-name" href="./../snippet/goods.html">goods</a></li> -->
+
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--//section-->
+			</div>
+			<!--//aside-body-->
+		</div>
+		<!--//page-side-->
+		<script type="text/javascript">
+			const layoutPageSide = new buiToggle('[data-bui-toggle="layoutPageSide"]', {
+				inactiveButton: true,
+				inactiveButtonText: '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>닫기</title><path d="M10.5382 12L3 4.46179L4.46179 3L12 10.5382L19.5382 3L21 4.46179L13.4618 12L21 19.5382L19.5382 21L12 13.4618L4.46179 21L3 19.5382L10.5382 12Z"></path></svg>',
+				inactiveButtonClass: 'btn close',
+				reactTarget: 'html',
+				reactTargetActiveClass: 'active-page-side',
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+
+				// var pageSide = new buiToggle('[data-bui-toggle="pageSide"]', {
+				// 	close: true,
+				// 	closeButtonClass: 'btn close',
+				// 	closeButtonText: '<svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" width="24" height="24"><title>닫기</title><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+				// 	focusin: true,
+				// 	focusout: true,
+				// });	
+			});
+		</script>
+		<!-- page-body -->
+		<div class="page-body" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject" id="localTitle"><span class="local-name">snippet</span></h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-head -->
+				<div class="content-head">
+					<h3 class="content-subject" id="contentSubject"><span class="content-name">list</span></h3>
+				</div>
+				<!-- //content-head -->
+				<!-- content-body -->
+				<div class="content-body">
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">data list</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list"&gt;
+	&lt;li class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="data-list"&gt;
+	&lt;p class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small-2x, small-1x, small, medium, large, large-1x, large-2x</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+			
+							
+							<!-- subsection: type -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-a normal-00 medium"&gt
+&lt;ul class="data-list module-a type-b normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-d normal-00 medium"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">demos</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-e normal-02 small-1x">
+												<li class="data-item">출고 완료 후 <span class="em accent-01">7일</span>이내 반품 신청 가능</li>
+												<li class="data-item">주문실수, 변심 등 고객 귀책 사유시 반품 배송비 : <span class="em accent-01">2500</span>원</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: type -->
+
+							<!-- subsection: type -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">type</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-a normal-00 medium"&gt
+&lt;ul class="data-list module-a type-b normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-d normal-00 medium"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-a</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-a normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-b</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-c</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-d</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-d normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: type -->
+							
+							<!-- subsection: accent -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">accent</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-c normal-01 medium"&gt
+&lt;ul class="data-list module-a type-c normal-02 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-03 medium"&gt;
+&lt;ul class="data-list module-a type-c normal-04 medium"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">normal-01</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-01 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">normal-02</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-02 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">normal-03</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-03 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">normal-04</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-c normal-04 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: accent -->
+
+							<!-- subsection: outline -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">outline</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list module-a type-b normal-00 small"&gt;
+&lt;ul class="data-list module-a type-b normal-00 medium"&gt;
+&lt;ul class="data-list module-a type-b normal-00 large"&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">small-1x</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 small-1x">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">small</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 small">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">medium</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-list -->
+											<ul class="data-list module-a type-b normal-00 medium">
+												<li class="data-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+											</ul>
+											<!-- //data-list -->
+										</div>
+									</div>
+									<!-- //subsubsection -->
+								</div>
+							</div>
+							<!-- //subsection: outline -->
+				
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">order list</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="order-list"&gt;
+	&lt;li class="order-item"&gt;
+		&lt;ul class="data-list"&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small-2x, small-1x, small, medium, large, large-1x, large-2x</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+			
+							<!-- subsection: type -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Demos</span></h5></div>
+								<div class="subsection-body">
+									<!-- subsubsection -->
+									<div class="subsubsection">
+										<!-- highlight-js -->
+										<pre class="highlight-js">
+<code class="html">&lt;ul class="order-list module-a type-a normal-00 medium"&gt;
+	&lt;li class="order-item"&gt;
+		&lt;ul class="data-list module-a type-a normal-00 small-2x"&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+			&lt;li class="data-item"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+										<!-- //highlight-js -->
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-a</span></h6></div>
+										<div class="subsubsection-body">
+											<p class="para normal-02">배송 예정일 (평일 기준, 주말 공휴일 제외)</p>
+											<!-- order-list -->
+											<ul class="order-list module-a type-a small-1x normal-01">
+												<li class="order-item ">배송소요시간
+													<ul class="data-list module-a type-c normal-02 small-2x">
+														<li class="data-item">출고 후 1~3일 정도 소요 될 수 있습니다.</li>
+														<li class="data-item">배송일 지정이 불가한 점 양해 부탁드립니다.</li>
+														<li class="data-item">택배사의 사정으로 인한 배송지연이 발생할 수 있습니다.</li>
+													</ul>
+												</li>
+												<li class="order-item">제주/도서 지역
+													<ul class="data-list module-a type-c normal-02 small-2x">
+														<li class="data-item">평균 배송일 보다 1~2일 정도 더 소요될 수 있습니다.</li>
+													</ul>
+												</li>
+												<li class="order-item">주문변경
+													<ul class="data-list module-a type-c normal-02 small-2x">
+														<li class="data-item">[출고준비중] 상태 부터는 주문취소 / 옵션변경 / 배송지 변경이 제한 됩니다.</li>
+													</ul>
+												</li>
+											</ul>
+											<!-- //order-list -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section">
+						<div class="section-head"><h4 class="section-title"><span class="section-name">data-display</span></h4></div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">HTML Structure</span></h5></div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="html">&lt;ul class="data-list"&gt;
+	&lt;li class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="data-list"&gt;
+	&lt;p class="data-item"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">Class Options</span></h5></div>
+								<div class="subsection-body">
+									<!--data-table-->
+									<div class="data-table module-bui type-a">
+										<table>
+											<colgroup>
+												<col style="width: 128rem;">
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">module</th>
+													<td>data-list</td>
+												</tr>
+												<tr>
+													<th scope="row">type</th>
+													<td>type-*</td>
+												</tr>
+												<tr>
+													<th scope="row">style</th>
+													<td>style-*</td>
+												</tr>
+												<tr>
+													<th scope="row">accent</th>
+													<td>normal-*, accent-*</td>
+												</tr>
+												<tr>
+													<th scope="row">outline</th>
+													<td>small-1x, small, medium, large, large-1x</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--//data-table-->
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head"><h5 class="subsection-title"><span class="subsection-name">module-a</span></h5></div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">&lt;div class="data-display module-b style-* type-* normal-* small"&gt;
+	&lt;ul class="data-list"&gt;
+		&lt;li class="data-item"&gt;
+			&lt;div class="data-wrap"&gt;
+				&lt;div class="data-head"&gt;&lt;span class="data-name"&gt;name&lt;/span&gt;&lt;/div&gt;
+				&lt;div class="data-body"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+									<!-- //highlight-js -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">결제정보</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">결제방법</span></div>
+															<div class="data-body">무통장입금</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">결제정보</span></div>
+															<div class="data-body"><span class="em accent-01">신한 12345678901234</span> <span class="em normal-02">(예금주: 주식회사 어쩌고 김유라)</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">입금기한</span></div>
+															<div class="data-body"><span class="em accent-01">00일 이내 미입금 시 자동으로 주문 취소</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">입금자명</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">환불계좌</span></div>
+															<div class="data-body">토스뱅크 12345678901234</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">주문서 확인</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-c">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주문번호</span></div>
+															<div class="data-body"><span class="body-name">20002020202020 <a href="#" class="btn module-ico type-none normal-03 small-1x"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><title>복사</title><path d="M8,10c0-1.1,.9-2,2-2h8c1.1,0,2,.9,2,2v8c0,1.1-.9,2-2,2H10c-1.1,0-2-.9-2-2V10Zm2,8h8V10H10v8ZM6,4c-1.1,0-2,.9-2,2V14c0,1.1,.9,2,2,2h2v-2h-2V6H14v2h2v-2c0-1.1-.9-2-2-2H6Z"></path></svg></a></span> </div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">결제정보</span></div>
+															<div class="data-body"><span class="em accent-01">신한은행 123456-78-901234</span> <span class="em normal-02">(예금주: 주식회사 어쩌고 김유라)</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">입금기한</span></div>
+															<div class="data-body"><span class="em accent-01">00일 이내 미입금 시 자동으로 주문 취소</span></div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">수령인</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주소</span></div>
+															<div class="data-body">서울 종로구 새문안로5길 19 로얄빌딩 5층 507호</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">요청사항</span></div>
+															<div class="data-body">부재시 문 앞으로 배송 부탁드려용~~</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">배송지 정보</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">수령인</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">연락처</span></div>
+															<div class="data-body">010-0000-0000</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주소</span></div>
+															<div class="data-body">서울 종로구 새문안로5길 19 로얄빌딩 5층 507호</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">요청사항</span></div>
+															<div class="data-body">부재시 문 앞으로 배송 부탁드려용~~</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<!-- subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">주문자 정보</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">주문자</span></div>
+															<div class="data-body">이땡땡</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">연락처</span></div>
+															<div class="data-body">010-0000-0000</div>
+														</div>
+													</li>
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">이메일</span></div>
+															<div class="data-body">design@ucomp.co.kr</div>
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+									<!-- //subsection -->
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-a</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-a style-b fill normal-02">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+								
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-b</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-b">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+
+												
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-c</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-c small-1x">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+
+									<div class="subsubsection">
+										<div class="subsubsection-head"><h6 class="subsubsection-title"><span class="subsubsection-name">type-d</span></h6></div>
+										<div class="subsubsection-body">
+											<!-- data-display -->
+											<div class="data-display module-a type-d normal-01 small-1x">
+												<!-- data-list -->
+												<ul class="data-list">
+													<li class="data-item">
+														<div class="data-wrap">
+															<div class="data-head"><span class="data-name">data-name</span></div>
+															<div class="data-body">모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</div>
+														</div>
+														<div class="data-side">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit.
+														</div>
+													</li>
+												</ul>
+												<!-- //data-list -->
+											</div>
+											<!--// data-display -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<!--page-foot-->
+		<div class="page-foot" id="foot">
+			<p class="copyright">&copy; Copyright <a href="mailto:codenamic@gmail.com">codenamic</a></p>
+		</div>
+		<!--//page-foot-->
+		<div class="page-baseline" id="pageBaseline"></div>
+		<div class="page-grid" id="pageGrid">
+			<div class="grid-list"><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span><span class="grid-item"></span></div>
+		</div>
+		<!--//page-control-->
+	</div>
+	<!-- //page -->
+</div>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function() {
+		var buttons = document.querySelectorAll('.bui-button-area .btn');
+		Array.prototype.forEach.call(buttons, function(button) {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+</body>
+</html>

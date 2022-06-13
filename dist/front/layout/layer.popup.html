@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>U: 유컴패니온 인트라넷</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="keywords" content="U: 유컴패니온 인트라넷" />
+	<link rel="shortcut icon" href="./../../assets/images/app/favicon.ico" />
+
+	<link rel="stylesheet" type="text/css" href="./../../assets/css/module.global.css" />
+	<link rel="stylesheet" type="text/css" href="./../../assets/css/layout.front.css">
+	<link rel="stylesheet" type="text/css" href="./../../assets/css/page.front.css">
+	<script type="text/javascript" src="./../../assets/js/bui.js"></script>
+	<script type="text/javascript" src="./../../assets/js/bui.template.js" defer></script>
+	
+<body>
+<!-- <h1>공통 팝업</h1> -->
+<br /><br /><br />
+<div class="button-display module-a style-a type-c">
+	<span class="button-area">
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('cancelOrder');" href="#cancelOrder"><span class="btn-text">주문취소</span></a>
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('changeShippingAddress');" href="#changeShippingAddress"><span class="btn-text">배송지 변경</span></a>
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('privacyPolicy');" href="#privacyPolicy"><span class="btn-text">비회원 주문 개인정보 수집 이용 동의</span></a>
+		<a class="btn module-b style-a type-fill large normal-02" onclick="contentsPopup.active('shippingInfo');" href="#shippingInfo"><span class="btn-text">배송 안내</span></a>
+	</span>
+</div>
+<hr />
+<hr />
+
+<!-- 결재 상태 변경 -->
+<!-- content-popup -->
+<div data-bui-toggle="contentsPopup" class="content-popup module-a style-b type-a medium" id="cancelOrder">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">주문취소</span></h2>
+			</div>
+			<!-- //popup-local-head -->
+			<!-- popup-local-body -->
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<!-- popup-content-body -->
+					<form class="popup-content-body">
+						<!-- info-board -->
+						<div class="info-board module-temp type-a">
+							<div class="board-wrap">
+								<div class="board-head">
+									<p class="board-subject"><span class="board-name">주문취소를 요청하시겠습니까?</span></p>
+									<p class="board-summary"><em class="em accent-02">주문취소 후 발생하는 불이익에 대해서는 책임지지 않습니다.</em></p>
+								</div>
+							</div>
+						</div>
+						<!-- //info-board -->
+						<!-- submit-form -->
+						<fieldset class="submit-form module-a type-c">
+							<legend>주문취소 요청 서식</legend>
+							<div class="form-list">
+								<div class="form-item">
+									<div class="form-wrap">
+										<div class="form-head"><label class="form-name" for="reasonForCancel">취소사유 <strong class="em accent-01">*</strong></label></div>
+										<div class="form-body">
+											<div class="form-area">
+												<span class="form select module-a style-b type-line normal-03 large flex">
+													<select class="form-elem" id="reasonForCancel">
+														<option>선택</option>
+													</select>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-item">
+									<div class="form-wrap">
+										<div class="form-head"><label class="form-name" for="detailedReason">상세사유</label></div>
+										<div class="form-body">
+											<div class="form-area">
+												<span class="form textarea module-a style-b type-line normal-03 large flex">
+													<textarea class="form-elem" id="detailedReason" cols="40" rows="5" placeholder="상세사유를 입력해주세요."></textarea>
+													<span class="form-func">
+														<span class="form-count"><span class="value">0</span>/150</span>
+													</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-util">
+								<!-- button-display -->
+								<div class="button-display module-a style-a type-a">
+									<span class="button-area">
+										<button class="btn module-b style-b type-fill large-2x accent-01 flex" type="submit"><span class="btn-text">요청하기</span></button>
+									</span>
+								</div>
+								<!-- //button-display -->
+							</div>
+						</fieldset>
+						<!-- //submit-form -->
+					</form>
+					<!-- //popup-content-body -->
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //content-popup -->
+
+<!-- 임직원 근무 현황 상세 -->
+<!-- content-popup -->
+<div data-bui-toggle="contentsPopup" class="content-popup module-a style-b type-a medium" id="changeShippingAddress">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">배송지 변경</span></h2>
+			</div>
+			<!-- //popup-local-head -->
+			<!-- popup-local-body -->
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<!-- popup-content-body -->
+					<form class="popup-content-body">
+						<!-- submit-form -->
+						<fieldset class="submit-form module-a type-c">
+							<legend>배송지 정보 입력 서식</legend>
+							<div class="form-list">
+								<div class="form-item">
+									<div class="form-wrap">
+										<div class="form-head"><label class="form-name" for="shippingRecipient">수령인</label></div>
+										<div class="form-body">
+											<div class="form-area">
+												<span class="form textfield module-a style-b type-line normal-03 large flex"><input class="form-elem" id="shippingRecipient" type="text" value="유컴패니온" /></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-item">
+									<div class="form-wrap">
+										<div class="form-head"><label class="form-name" for="shippingRecipientContact">연락처</label></div>
+										<div class="form-body">
+											<div class="form-area">
+												<span class="form textfield module-a style-b type-line normal-03 large flex"><input class="form-elem" id="shippingRecipientContact" type="tel" value="01012345678" /></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-item">
+									<div class="form-wrap">
+										<div class="form-head"><label class="form-name" for="shippingRecipientAddress">주소</label></div>
+										<div class="form-body">
+											<div class="form-area">
+												<span class="form textfield module-a style-b type-line normal-03 large flex">
+													<input class="form-elem" type="text" id="shippingRecipientAddress" readonly="readonly" value="123456" />
+												</span>
+												<a class="btn module-b style-b type-fill normal-02 large" href="#"><span class="btn-text">우편번호검색</span></a>
+											</div>
+											<div class="form-area">
+												<span class="form textfield module-a style-b type-line normal-03 large flex">
+													<input class="form-elem" type="text" readonly="readonly" value="서울 강남구 논현로28길 45" />
+												</span>
+											</div>
+											<div class="form-area">
+												<span class="form textfield module-a style-b type-line normal-03 large flex">
+													<input class="form-elem" type="text" placeholder="상세 주소를 입력해주세요." value="3, 4층" />
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-item">
+									<div class="form-wrap">
+										<div class="form-head"><label class="form-name" for="shippingRequirements">요청사항</label></div>
+										<div class="form-body">
+											<div class="form-area">
+												<span class="form textarea module-a style-b type-line normal-03 large flex">
+													<textarea class="form-elem" id="shippingRequirements" cols="40" rows="3" placeholder="요청사항을 입력해주세요."></textarea>
+													<span class="form-func">
+														<span class="form-count"><span class="value">0</span>/150</span>
+													</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-util">
+								<!-- button-display -->
+								<div class="button-display module-a style-a type-a">
+									<span class="button-area">
+										<button class="btn module-b style-b type-fill large-2x accent-01 flex" type="submit"><span class="btn-text">변경하기</span></button>
+									</span>
+								</div>
+								<!-- //button-display -->
+							</div>
+						</fieldset>
+						<!-- //submit-form -->
+					</form>
+					<!-- //popup-content-body -->
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //content-popup -->
+
+<!-- 이미지 크게 보기 -->
+<!-- content-popup -->
+<div data-bui-toggle="contentsPopup" class="content-popup module-a style-b type-a medium" id="privacyPolicy">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">비회원 주문 개인정보 수집 이용 동의</span></h2>
+			</div>
+			<!-- //popup-local-head -->
+			<!-- popup-local-body -->
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<!-- popup-content-body -->
+					<div class="popup-content-body">
+						<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+						<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+						<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+						<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					</div>
+					<!-- //popup-content-body -->
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //content-popup -->
+
+<!-- 이미지 크게 보기 -->
+<!-- content-popup -->
+<div data-bui-toggle="contentsPopup" class="content-popup module-a style-b type-a medium" id="shippingInfo">
+	<div class="popup-page-body">
+		<!-- popup-local -->
+		<div class="popup-local">
+			<!-- popup-local-head -->
+			<div class="popup-local-head">
+				<h2 class="popup-local-title"><span class="popup-local-name">배송 안내</span></h2>
+			</div>
+			<!-- //popup-local-head -->
+			<!-- popup-local-body -->
+			<div class="popup-local-body">
+				<div class="popup-content">
+					<!-- popup-content-body -->
+					<div class="popup-content-body">
+						<p class="para normal-02">배송 예정일 (평일 기준, 주말 공휴일 제외)</p>
+						<!-- order-list -->
+						<ul class="order-list module-a type-a small-1x normal-01">
+							<li class="order-item ">배송소요시간
+								<ul class="data-list module-a type-c normal-02 small-2x">
+									<li class="data-item">출고 후 1~3일 정도 소요 될 수 있습니다.</li>
+									<li class="data-item">배송일 지정이 불가한 점 양해 부탁드립니다.</li>
+									<li class="data-item">택배사의 사정으로 인한 배송지연이 발생할 수 있습니다.</li>
+								</ul>
+							</li>
+							<li class="order-item">제주/도서 지역
+								<ul class="data-list module-a type-c normal-02 small-2x">
+									<li class="data-item">평균 배송일 보다 1~2일 정도 더 소요될 수 있습니다.</li>
+								</ul>
+							</li>
+							<li class="order-item">주문변경
+								<ul class="data-list module-a type-c normal-02 small-2x">
+									<li class="data-item">[출고준비중] 상태 부터는 주문취소 / 옵션변경 / 배송지 변경이 제한 됩니다.</li>
+								</ul>
+							</li>
+						</ul>
+						<!-- //order-list -->
+					</div>
+					<!-- //popup-content-body -->
+				</div>
+			</div>
+			<!-- //popup-local-body -->
+		</div>
+		<!-- //popup-local -->
+	</div>
+</div>
+<!-- //content-popup -->
+<script stype="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		contentsPopup.active('cancelOrder');
+	});
+</script>
+</body>
+</html>
